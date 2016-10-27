@@ -11,8 +11,8 @@
   DTS:LocaleID="1058"
   DTS:ObjectName="DataExtstracting"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{B22EDE98-6263-4CD9-84B5-01FE467F011E}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{AC23CB16-4847-45A9-9A9B-8D9308A9B8B5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -84,6 +84,8 @@
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{8276EACD-59AE-4A9F-A7C3-7BD81DCFACB9}"
       DTS:ObjectName="OurPriceOnGoods">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"C:\\DataExtract\\Pending\\OurPriceOnGoods_"+ substring((DT_STR, 40, 1254) GETDATE(),1,10)+".txt"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -93,33 +95,48 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1251"
-          DTS:ConnectionString="C:\DataExtract\Pending\OurPriceOnGoods.txt">
+          DTS:ConnectionString="C:\DataExtract\Pending\OurPriceOnGoods_2016-10-27.txt">
           <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CostPrice"
+              DTS:DTSID="{382D0E0E-E5CB-4BF5-9908-FE52A4221565}"
+              DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="ContractId"
-              DTS:DTSID="{95804DE7-355D-4D43-9935-94FE84F9AF5D}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="3"
-              DTS:TextQualified="True"
-              DTS:ObjectName="GoodsId"
-              DTS:DTSID="{7FDC5D07-A3DE-4923-902D-EAFAE3735A6E}"
+              DTS:DTSID="{33A60017-FE34-4ED1-8C4A-6798A8D2D75E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:DataType="6"
+              DTS:DataType="3"
               DTS:TextQualified="True"
-              DTS:ObjectName="CostPrice"
-              DTS:DTSID="{5EC75780-0911-4AD5-90B8-63D2D8308734}"
+              DTS:ObjectName="GoodsId"
+              DTS:DTSID="{4C30BEAC-198D-4827-BA1D-CCDEC45BB9CC}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ssu-sql12\tc.Lv-200.DB.Lv-200.DB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4656DB2F-2D31-44A9-8F6F-FB5C7D852F23}"
+      DTS:ObjectName="ssu-sql12\tc.Lv-200.DB.Lv-200.DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ssu-sql12\tc;User ID=Lv-200.DB;Initial Catalog=Lv-200.DB;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJX0D7MhU20SQOHfZrzNBAQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADHWqukxmGMRCrhBi2XyPkwFLQ+MZC8kgjNMt9QagVrWwAAAAAOgAAAAAIAACAAAAAEGFnSDzkbqzR+I/rZKsV1B0t3eB0iSCCsb8uuWGoL9SAAAACuQYVg2yM/CCx9b7j6+u6OWOlmcI+BXVT80wXCyyTFVEAAAAB8xUtMYoKualBExYfEMsHLBUK7hEP7ATFwKkt0+QBZoN0ZB4hiJrGU4G3PBfOBWKWnpK03Jww6+/T4JshOtf4s</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -128,6 +145,8 @@
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{92201B86-07E8-4F18-A74F-64DC20845971}"
       DTS:ObjectName="SubTypeOfGoods">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"C:\\DataExtract\\Pending\\SubTypesOfGoods_"+ substring((DT_STR, 40, 1254) GETDATE(),1,10)+".txt"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -137,7 +156,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\DataExtract\Pending\SubTypesOfGoods.txt">
+          DTS:ConnectionString="C:\DataExtract\Pending\SubTypesOfGoods_2016-10-27.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -181,6 +200,8 @@
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{549CCE8B-16D9-4636-81D7-40C9488EC120}"
       DTS:ObjectName="TypeOfGood">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"C:\\DataExtract\\Pending\\TypesOfGoods_"+ substring((DT_STR, 40, 1254) GETDATE(),1,10)+".txt"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -190,7 +211,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\DataExtract\Pending\TypesOfGoods.txt">
+          DTS:ConnectionString="C:\DataExtract\Pending\TypesOfGoods_2016-10-27.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -198,7 +219,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="TypeId"
-              DTS:DTSID="{9D18C394-B087-4290-85EA-541A62940501}"
+              DTS:DTSID="{289039F5-6635-4E4E-A62C-F0FE33C85388}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -207,7 +228,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Type"
-              DTS:DTSID="{0B28336C-9FF6-4982-B99B-062DDDBB6613}"
+              DTS:DTSID="{08DD62A8-1A98-4643-8E33-3D918F2D62E2}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -224,41 +245,8 @@
       <DTS:VariableValue
         DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{AA5E40B8-9811-4481-994A-436CEB582FD1}"
-      DTS:IncludeInDebugDump="6789"
-      DTS:Namespace="User"
-      DTS:ObjectName="Variable">
-      <DTS:VariableValue
-        DTS:DataType="3">0</DTS:VariableValue>
-    </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
-    <DTS:Executable
-      DTS:refId="Package\Execute SQL Task"
-      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{97FC4D89-AB89-483B-A0AF-859463733D6A}"
-      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Execute SQL Task"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{96AD0758-88D1-48A8-A0EA-4B36CA16A832}"
-          SQLTask:SqlStatementSource="  insert [Lv-200.DB].[dbo].[LogEvent] values (getdate(),getdate(),'SSIS','TypeOfGoodsExp','RowsExported',?,'OK')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-          <SQLTask:ParameterBinding
-            SQLTask:ParameterName="0"
-            SQLTask:DtsVariableName="System::PackageName"
-            SQLTask:ParameterDirection="Input"
-            SQLTask:DataType="129"
-            SQLTask:ParameterSize="-1" />
-        </SQLTask:SqlTaskData>
-      </DTS:ObjectData>
-    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\OurPriceOnGoods"
       DTS:CreationName="SSIS.Pipeline.3"
@@ -305,12 +293,6 @@
                   name="Flat File Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\OurPriceOnGoods\Flat File Destination.Inputs[Flat File Destination Input].Columns[ContractId]"
-                      cachedDataType="i4"
-                      cachedName="ContractId"
-                      externalMetadataColumnId="Package\OurPriceOnGoods\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ContractId]"
-                      lineageId="Package\OurPriceOnGoods\OLE DB Source.Outputs[OLE DB Source Output].Columns[ContractId]" />
-                    <inputColumn
                       refId="Package\OurPriceOnGoods\Flat File Destination.Inputs[Flat File Destination Input].Columns[GoodsId]"
                       cachedDataType="i4"
                       cachedName="GoodsId"
@@ -322,9 +304,19 @@
                       cachedName="CostPrice"
                       externalMetadataColumnId="Package\OurPriceOnGoods\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CostPrice]"
                       lineageId="Package\OurPriceOnGoods\OLE DB Source.Outputs[OLE DB Source Output].Columns[CostPrice]" />
+                    <inputColumn
+                      refId="Package\OurPriceOnGoods\Flat File Destination.Inputs[Flat File Destination Input].Columns[ContractId]"
+                      cachedDataType="i4"
+                      cachedName="ContractId"
+                      externalMetadataColumnId="Package\OurPriceOnGoods\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ContractId]"
+                      lineageId="Package\OurPriceOnGoods\OLE DB Source.Outputs[OLE DB Source Output].Columns[ContractId]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\OurPriceOnGoods\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CostPrice]"
+                      dataType="cy"
+                      name="CostPrice" />
                     <externalMetadataColumn
                       refId="Package\OurPriceOnGoods\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ContractId]"
                       dataType="i4"
@@ -333,10 +325,6 @@
                       refId="Package\OurPriceOnGoods\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[GoodsId]"
                       dataType="i4"
                       name="GoodsId" />
-                    <externalMetadataColumn
-                      refId="Package\OurPriceOnGoods\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CostPrice]"
-                      dataType="cy"
-                      name="CostPrice" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -392,8 +380,8 @@
               <connections>
                 <connection
                   refId="Package\OurPriceOnGoods\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.Lv-200.DB]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Lv-200.DB]"
+                  connectionManagerID="Package.ConnectionManagers[ssu-sql12\tc.Lv-200.DB.Lv-200.DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[ssu-sql12\tc.Lv-200.DB.Lv-200.DB]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -402,6 +390,15 @@
                   refId="Package\OurPriceOnGoods\OLE DB Source.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\OurPriceOnGoods\OLE DB Source.Outputs[OLE DB Source Output].Columns[CostPrice]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\OurPriceOnGoods\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CostPrice]"
+                      lineageId="Package\OurPriceOnGoods\OLE DB Source.Outputs[OLE DB Source Output].Columns[CostPrice]"
+                      name="CostPrice"
+                      truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\OurPriceOnGoods\OLE DB Source.Outputs[OLE DB Source Output].Columns[ContractId]"
                       dataType="i4"
@@ -420,18 +417,13 @@
                       lineageId="Package\OurPriceOnGoods\OLE DB Source.Outputs[OLE DB Source Output].Columns[GoodsId]"
                       name="GoodsId"
                       truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\OurPriceOnGoods\OLE DB Source.Outputs[OLE DB Source Output].Columns[CostPrice]"
-                      dataType="cy"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\OurPriceOnGoods\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CostPrice]"
-                      lineageId="Package\OurPriceOnGoods\OLE DB Source.Outputs[OLE DB Source Output].Columns[CostPrice]"
-                      name="CostPrice"
-                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\OurPriceOnGoods\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CostPrice]"
+                      dataType="cy"
+                      name="CostPrice" />
                     <externalMetadataColumn
                       refId="Package\OurPriceOnGoods\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ContractId]"
                       dataType="i4"
@@ -440,10 +432,6 @@
                       refId="Package\OurPriceOnGoods\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GoodsId]"
                       dataType="i4"
                       name="GoodsId" />
-                    <externalMetadataColumn
-                      refId="Package\OurPriceOnGoods\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CostPrice]"
-                      dataType="cy"
-                      name="CostPrice" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -641,8 +629,8 @@
               <connections>
                 <connection
                   refId="Package\SubTypesOfGoods\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.Lv-200.DB]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Lv-200.DB]"
+                  connectionManagerID="Package.ConnectionManagers[ssu-sql12\tc.Lv-200.DB.Lv-200.DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[ssu-sql12\tc.Lv-200.DB.Lv-200.DB]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -894,8 +882,8 @@
               <connections>
                 <connection
                   refId="Package\TypesOfGoods\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.Lv-200.DB]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Lv-200.DB]"
+                  connectionManagerID="Package.ConnectionManagers[ssu-sql12\tc.Lv-200.DB.Lv-200.DB]"
+                  connectionManagerRefId="Package.ConnectionManagers[ssu-sql12\tc.Lv-200.DB.Lv-200.DB]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -985,16 +973,6 @@
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
-  <DTS:PrecedenceConstraints>
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint]"
-      DTS:CreationName=""
-      DTS:DTSID="{F614A021-170E-4847-88BE-77D7AFF96896}"
-      DTS:From="Package\TypesOfGoods"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint"
-      DTS:To="Package\Execute SQL Task" />
-  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -1006,11 +984,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="165,42"
-          Id="Package\Execute SQL Task"
-          TopLeft="237,251" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
           Size="164,42"
           Id="Package\OurPriceOnGoods"
@@ -1023,28 +997,6 @@
           Size="149,42"
           Id="Package\TypesOfGoods"
           TopLeft="247,9" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="320.5,51">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,200"
-              Start="0,0"
-              End="0,192.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,192.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1060,33 +1012,21 @@
         <NodeLayout
           Size="174,42"
           Id="Package\OurPriceOnGoods\Flat File Destination"
-          TopLeft="495,199" />
+          TopLeft="544,189" />
         <EdgeLayout
           Id="Package\OurPriceOnGoods.Paths[OLE DB Source Output]"
-          TopLeft="624,142">
+          TopLeft="627.5,142">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-42,57"
+              EndConnector="0,47"
               Start="0,0"
-              End="-42,49.5">
+              End="0,39.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.5"
-                    Point2="0,28.5"
-                    Point3="-4,28.5" />
-                  <mssgle:LineSegment
-                    End="-38,28.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-38,28.5"
-                    Point2="-42,28.5"
-                    Point3="-42,32.5" />
-                  <mssgle:LineSegment
-                    End="-42,49.5" />
+                    End="0,39.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
