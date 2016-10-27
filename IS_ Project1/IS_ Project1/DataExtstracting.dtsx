@@ -11,8 +11,8 @@
   DTS:LocaleID="1058"
   DTS:ObjectName="DataExtstracting"
   DTS:PackageType="5"
-  DTS:VersionBuild="24"
-  DTS:VersionGUID="{D325D080-A0B0-4E6A-B898-6BF626111A60}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{B22EDE98-6263-4CD9-84B5-01FE467F011E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -218,9 +218,18 @@
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{25143F07-88FF-4091-B140-7897BF792D16}"
-      DTS:IncludeInDebugDump="6789"
+      DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="TOfG_RC">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AA5E40B8-9811-4481-994A-436CEB582FD1}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Variable">
       <DTS:VariableValue
         DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
@@ -747,47 +756,13 @@
                 </output>
               </outputs>
             </component>
-            <component
-              refId="Package\SubTypesOfGoods\Row Count"
-              componentClassID="{E2697D8C-70DA-42B2-8208-A19CE3A9FE41}"
-              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
-              name="Row Count">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable to hold the row count."
-                  name="VariableName">User::TOfG_RC</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\SubTypesOfGoods\Row Count.Inputs[Row Count Input 1]"
-                  hasSideEffects="true"
-                  name="Row Count Input 1">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\SubTypesOfGoods\Row Count.Outputs[Row Count Output 1]"
-                  name="Row Count Output 1"
-                  synchronousInputId="Package\SubTypesOfGoods\Row Count.Inputs[Row Count Input 1]">
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
           </components>
           <paths>
             <path
               refId="Package\SubTypesOfGoods.Paths[OLE DB Source Output]"
-              endId="Package\SubTypesOfGoods\Row Count.Inputs[Row Count Input 1]"
+              endId="Package\SubTypesOfGoods\Flat File Destination.Inputs[Flat File Destination Input]"
               name="OLE DB Source Output"
               startId="Package\SubTypesOfGoods\OLE DB Source.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\SubTypesOfGoods.Paths[Row Count Output 1]"
-              endId="Package\SubTypesOfGoods\Flat File Destination.Inputs[Flat File Destination Input]"
-              name="Row Count Output 1"
-              startId="Package\SubTypesOfGoods\Row Count.Outputs[Row Count Output 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -998,47 +973,13 @@
                 </output>
               </outputs>
             </component>
-            <component
-              refId="Package\TypesOfGoods\Row Count"
-              componentClassID="{E2697D8C-70DA-42B2-8208-A19CE3A9FE41}"
-              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
-              name="Row Count">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable to hold the row count."
-                  name="VariableName">User::TOfG_RC</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\TypesOfGoods\Row Count.Inputs[Row Count Input 1]"
-                  hasSideEffects="true"
-                  name="Row Count Input 1">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\TypesOfGoods\Row Count.Outputs[Row Count Output 1]"
-                  name="Row Count Output 1"
-                  synchronousInputId="Package\TypesOfGoods\Row Count.Inputs[Row Count Input 1]">
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
           </components>
           <paths>
             <path
               refId="Package\TypesOfGoods.Paths[OLE DB Source Output]"
-              endId="Package\TypesOfGoods\Row Count.Inputs[Row Count Input 1]"
+              endId="Package\TypesOfGoods\Flat File Destination.Inputs[Flat File Destination Input]"
               name="OLE DB Source Output"
               startId="Package\TypesOfGoods\OLE DB Source.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\TypesOfGoods.Paths[Row Count Output 1]"
-              endId="Package\TypesOfGoods\Flat File Destination.Inputs[Flat File Destination Input]"
-              name="Row Count Output 1"
-              startId="Package\TypesOfGoods\Row Count.Outputs[Row Count Output 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1067,6 +1008,14 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="165,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="237,251" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\OurPriceOnGoods"
+          TopLeft="772,19" />
+        <NodeLayout
           Size="167,42"
           Id="Package\SubTypesOfGoods"
           TopLeft="476,11" />
@@ -1074,36 +1023,20 @@
           Size="149,42"
           Id="Package\TypesOfGoods"
           TopLeft="247,9" />
-        <NodeLayout
-          Size="165,42"
-          Id="Package\Execute SQL Task"
-          TopLeft="309,162" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="321.5,51">
+          TopLeft="320.5,51">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="70,111"
+              EndConnector="0,200"
               Start="0,0"
-              End="70,103.5">
+              End="0,192.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,51.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,51.5"
-                    Point2="0,55.5"
-                    Point3="4,55.5" />
-                  <mssgle:LineSegment
-                    End="66,55.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="66,55.5"
-                    Point2="70,55.5"
-                    Point3="70,59.5" />
-                  <mssgle:LineSegment
-                    End="70,103.5" />
+                    End="0,192.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1112,215 +1045,9 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164,42"
-          Id="Package\OurPriceOnGoods"
-          TopLeft="772,19" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <TaskHost
-    design-time-name="Package\SubTypesOfGoods">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="174,42"
-          Id="Package\SubTypesOfGoods\Flat File Destination"
-          TopLeft="524,267" />
-        <NodeLayout
-          Size="152,42"
-          Id="Package\SubTypesOfGoods\OLE DB Source"
-          TopLeft="509,73" />
-        <NodeLayout
-          Size="132,42"
-          Id="Package\SubTypesOfGoods\Row Count"
-          TopLeft="528,173" />
-        <EdgeLayout
-          Id="Package\SubTypesOfGoods.Paths[OLE DB Source Output]"
-          TopLeft="585,115">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="9,58"
-              Start="0,0"
-              End="9,50.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25"
-                    Point2="0,29"
-                    Point3="4,29" />
-                  <mssgle:LineSegment
-                    End="5,29" />
-                  <mssgle:CubicBezierSegment
-                    Point1="5,29"
-                    Point2="9,29"
-                    Point3="9,33" />
-                  <mssgle:LineSegment
-                    End="9,50.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SubTypesOfGoods.Paths[Row Count Output 1]"
-          TopLeft="594,215">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="17,52"
-              Start="0,0"
-              End="17,44.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22"
-                    Point2="0,26"
-                    Point3="4,26" />
-                  <mssgle:LineSegment
-                    End="13,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13,26"
-                    Point2="17,26"
-                    Point3="17,30" />
-                  <mssgle:LineSegment
-                    End="17,44.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\SubTypesOfGoods\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\TypesOfGoods">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="152,42"
-          Id="Package\TypesOfGoods\OLE DB Source"
-          TopLeft="442,34" />
-        <NodeLayout
-          Size="174,42"
-          Id="Package\TypesOfGoods\Flat File Destination"
-          TopLeft="289,280" />
-        <NodeLayout
-          Size="132,42"
-          Id="Package\TypesOfGoods\Row Count"
-          TopLeft="501,163" />
-        <EdgeLayout
-          Id="Package\TypesOfGoods.Paths[OLE DB Source Output]"
-          TopLeft="518,76">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="49,87"
-              Start="0,0"
-              End="49,79.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,39.5"
-                    Point2="0,43.5"
-                    Point3="4,43.5" />
-                  <mssgle:LineSegment
-                    End="45,43.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="45,43.5"
-                    Point2="49,43.5"
-                    Point3="49,47.5" />
-                  <mssgle:LineSegment
-                    End="49,79.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\TypesOfGoods.Paths[Row Count Output 1]"
-          TopLeft="567,205">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-191,75"
-              Start="0,0"
-              End="-191,67.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,33.5"
-                    Point2="0,37.5"
-                    Point3="-4,37.5" />
-                  <mssgle:LineSegment
-                    End="-187,37.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-187,37.5"
-                    Point2="-191,37.5"
-                    Point3="-191,41.5" />
-                  <mssgle:LineSegment
-                    End="-191,67.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\TypesOfGoods\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\OurPriceOnGoods">
     <LayoutInfo>
@@ -1373,6 +1100,132 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\OurPriceOnGoods\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SubTypesOfGoods">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="174,42"
+          Id="Package\SubTypesOfGoods\Flat File Destination"
+          TopLeft="524,267" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\SubTypesOfGoods\OLE DB Source"
+          TopLeft="509,73" />
+        <EdgeLayout
+          Id="Package\SubTypesOfGoods.Paths[OLE DB Source Output]"
+          TopLeft="585,115">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26,152"
+              Start="0,0"
+              End="26,144.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,72" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,72"
+                    Point2="0,76"
+                    Point3="4,76" />
+                  <mssgle:LineSegment
+                    End="22,76" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22,76"
+                    Point2="26,76"
+                    Point3="26,80" />
+                  <mssgle:LineSegment
+                    End="26,144.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SubTypesOfGoods\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\TypesOfGoods">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\TypesOfGoods\OLE DB Source"
+          TopLeft="442,34" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\TypesOfGoods\Flat File Destination"
+          TopLeft="289,280" />
+        <EdgeLayout
+          Id="Package\TypesOfGoods.Paths[OLE DB Source Output]"
+          TopLeft="518,76">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-142,204"
+              Start="0,0"
+              End="-142,196.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,98" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,98"
+                    Point2="0,102"
+                    Point3="-4,102" />
+                  <mssgle:LineSegment
+                    End="-138,102" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-138,102"
+                    Point2="-142,102"
+                    Point3="-142,106" />
+                  <mssgle:LineSegment
+                    End="-142,196.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\TypesOfGoods\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
