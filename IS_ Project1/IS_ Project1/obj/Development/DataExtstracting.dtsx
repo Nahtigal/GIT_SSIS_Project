@@ -11,8 +11,8 @@
   DTS:LocaleID="1058"
   DTS:ObjectName="DataExtstracting"
   DTS:PackageType="5"
-  DTS:VersionBuild="31"
-  DTS:VersionGUID="{AC23CB16-4847-45A9-9A9B-8D9308A9B8B5}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{251E8206-C354-4470-A13C-C010677D0079}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -95,7 +95,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1251"
-          DTS:ConnectionString="C:\DataExtract\Pending\OurPriceOnGoods_2016-10-27.txt">
+          DTS:ConnectionString="C:\DataExtract\Pending\OurPriceOnGoods_2016-10-28.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -103,7 +103,7 @@
               DTS:DataType="6"
               DTS:TextQualified="True"
               DTS:ObjectName="CostPrice"
-              DTS:DTSID="{382D0E0E-E5CB-4BF5-9908-FE52A4221565}"
+              DTS:DTSID="{51538ABD-9311-4027-822A-16CE1E3D21A8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -111,7 +111,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="ContractId"
-              DTS:DTSID="{33A60017-FE34-4ED1-8C4A-6798A8D2D75E}"
+              DTS:DTSID="{7611526F-AD75-41CD-869A-E5D087ABF9F3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -119,7 +119,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="GoodsId"
-              DTS:DTSID="{4C30BEAC-198D-4827-BA1D-CCDEC45BB9CC}"
+              DTS:DTSID="{45FB12B5-9ED5-432D-BBDD-F68BD8FA613B}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -136,7 +136,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJX0D7MhU20SQOHfZrzNBAQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAkGq2iWqWwYjk3qHCYGreKoHurni7rNRfC1O8RO1z4xQAAAAAOgAAAAAIAACAAAAC1P4CiuCHSa8gsVp7ROcC3e2F/tXq8y7vuhOnxADdUwiAAAABY5HPrN6MFqPCPIH1EO37pxYh2JfjF2En7iYVW8UW5EEAAAACz1uMo98tTDkJgEdF/e4H6aNMM0WHBnDbodhfqbW0UDXXJKyk4NTmQguXgGlr1P8cD83xWPmpvW7E9QQrwq4qp</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJX0D7MhU20SQOHfZrzNBAQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADDy9TrViATtQsBVO77sSD1yzXJ9Q+APzMAJNbyWNKlygAAAAAOgAAAAAIAACAAAABfbyUpxPXLh6/k9eNIx01MXOLmXHr4TEoOMKmzA/uR4iAAAACVFLs/zlMbCzJoc5DHr8/4khiiYO/rKpLhsILbJ9VgUUAAAADVAq2mC/c4KlDR1fDYnecXK45v/jfPG96953c98j6+yWwKIVfBbhR5iEGPLcsDNakizT8iXnP6aLVVDxjWnlo/</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -156,7 +156,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\DataExtract\Pending\SubTypesOfGoods_2016-10-27.txt">
+          DTS:ConnectionString="C:\DataExtract\Pending\SubTypesOfGoods_2016-10-28.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -211,7 +211,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\DataExtract\Pending\TypesOfGoods_2016-10-27.txt">
+          DTS:ConnectionString="C:\DataExtract\Pending\TypesOfGoods_2016-10-28.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -1055,7 +1055,7 @@
     design-time-name="Package\SubTypesOfGoods">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="174,42"
           Id="Package\SubTypesOfGoods\Flat File Destination"
@@ -1095,7 +1095,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

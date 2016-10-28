@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ssu-sql12_tc.Lv-200.DB_Staging.Lv-200.DB"
+  DTS:DTSID="{ADDA4174-16F5-4D20-85CB-27BFEE20CDF2}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=ssu-sql12\tc;User ID=Lv-200.DB;Initial Catalog=Lv-200.DB_Staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJX0D7MhU20SQOHfZrzNBAQAAAAACAAAAAAAQZgAAAAEAACAAAAC0BzfuS8YBzwvmU7WpzNiXEh3eI3Vmxjptidgnh4VrWwAAAAAOgAAAAAIAACAAAADgF8Q438qAT8ZeENUwbed9yy0pzNT3o0RgKzo+qqVhqIAAAACkTYaHS/W59r8N001Ihjf8Jz6NB9iMnNrf+LVCl0a9SdRqxSBaSqqrP3gAf8yIrr1XCEwoMpWsOjCCbkOn8EiMTvn+OXL2L37kCtkuJocCMwz0TjpKsbB0YFMVTu3uAeH+Vm/gUUkStv5hKp1Mh9JKY8DsoFDYFMsYiHEQn3Py1kAAAADgjauE+xaR4cwwiwNIIYv1WKhCw02B8vfULddGc4b8R+wrbqSJAm32QUY2dn/D3LBsCpE8MW/We9AGgQ7LkK9v</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
