@@ -11,8 +11,8 @@
   DTS:LocaleID="1058"
   DTS:ObjectName="DataExtstracting"
   DTS:PackageType="5"
-  DTS:VersionBuild="38"
-  DTS:VersionGUID="{251E8206-C354-4470-A13C-C010677D0079}">
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{3705D668-05AB-41B0-AA07-4B466555D66B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -95,7 +95,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1251"
-          DTS:ConnectionString="C:\DataExtract\Pending\OurPriceOnGoods_2016-10-28.txt">
+          DTS:ConnectionString="C:\DataExtract\Pending\OurPriceOnGoods_2016-10-31.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -136,7 +136,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJX0D7MhU20SQOHfZrzNBAQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADDy9TrViATtQsBVO77sSD1yzXJ9Q+APzMAJNbyWNKlygAAAAAOgAAAAAIAACAAAABfbyUpxPXLh6/k9eNIx01MXOLmXHr4TEoOMKmzA/uR4iAAAACVFLs/zlMbCzJoc5DHr8/4khiiYO/rKpLhsILbJ9VgUUAAAADVAq2mC/c4KlDR1fDYnecXK45v/jfPG96953c98j6+yWwKIVfBbhR5iEGPLcsDNakizT8iXnP6aLVVDxjWnlo/</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJX0D7MhU20SQOHfZrzNBAQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADBTa4T/ZgoryBvnhqwb3GweKGf8llTSqL5qoBCVmhqugAAAAAOgAAAAAIAACAAAAAPK4y9kZGfYDYE7GmUJ96jDK389uGfmdb8zqCXerumqiAAAADQXC1qwiCCK5GdXoFaDsQSSc8lMCbWdd06gkt35j6NHkAAAADodfaRRUig3Oc3L00L/tzBU3wfJFd2WR/za+LyM7hz9bIPtkGS0+4sPTfbjpnZdWHx4mf0WPdN2WZYKS4HPbZT</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -156,7 +156,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\DataExtract\Pending\SubTypesOfGoods_2016-10-28.txt">
+          DTS:ConnectionString="C:\DataExtract\Pending\SubTypesOfGoods_2016-10-31.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -211,7 +211,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\DataExtract\Pending\TypesOfGoods_2016-10-28.txt">
+          DTS:ConnectionString="C:\DataExtract\Pending\TypesOfGoods_2016-10-31.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"

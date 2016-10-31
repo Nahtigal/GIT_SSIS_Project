@@ -114,7 +114,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="ProcecedFileName">
       <DTS:VariableValue
-        DTS:DataType="8">C:\DataExtract\Processed\SubTypesOfGoods_2016-10-28\SubTypesOfGoods_2016-10-27.txt</DTS:VariableValue>
+        DTS:DataType="8">C:\DataExtract\Processed\SubTypesOfGoods_2016-10-31\SubTypesOfGoods_2016-10-27.txt</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -134,7 +134,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="SubTypeProcessFolder">
       <DTS:VariableValue
-        DTS:DataType="8">C:\DataExtract\Processed\SubTypesOfGoods_2016-10-28</DTS:VariableValue>
+        DTS:DataType="8">C:\DataExtract\Processed\SubTypesOfGoods_2016-10-31</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>

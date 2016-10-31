@@ -11,8 +11,8 @@
   DTS:LocaleID="1058"
   DTS:ObjectName="OurPriceOnGoods"
   DTS:PackageType="5"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{BF53FDDB-528D-4EFD-A2EB-C080FB95A993}">
+  DTS:VersionBuild="34"
+  DTS:VersionGUID="{7AC888DF-9F32-40EA-B06A-FAF5BAA4F6BF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -76,6 +76,15 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:DTSID="{3B5390C7-259C-4BAE-95E7-F1BDFAAF10B0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="File_mask">
+      <DTS:VariableValue
+        DTS:DataType="8">OurPriceOnGoods*.*</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
       DTS:DTSID="{70C0DE48-8C6A-492B-B3C8-9F7D34933AFD}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
@@ -91,6 +100,15 @@
       DTS:ObjectName="ProcessedDirName">
       <DTS:VariableValue
         DTS:DataType="8">C:\DataExtract\Processed</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7C958B70-2D8A-4EA4-84C0-2F796E3D1870}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Row_C">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -131,7 +149,7 @@
           DTS:Namespace="User"
           DTS:ObjectName="OutPriceProcessedDir">
           <DTS:VariableValue
-            DTS:DataType="8">C:\DataExtract\Processed\OurPriceOnGoods_2016-10-28</DTS:VariableValue>
+            DTS:DataType="8">C:\DataExtract\Processed\OurPriceOnGoods_2016-10-31</DTS:VariableValue>
         </DTS:Variable>
       </DTS:Variables>
       <DTS:ObjectData>
@@ -156,6 +174,8 @@
         DTS:ObjectName="{6316AD94-621D-4232-A034-89707A9D7E06}">
         <DTS:PropertyExpression
           DTS:Name="Directory">@[User::PendingDirName]</DTS:PropertyExpression>
+        <DTS:PropertyExpression
+          DTS:Name="FileSpec">@[User::File_mask]</DTS:PropertyExpression>
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
@@ -191,7 +211,7 @@
               DTS:Namespace="User"
               DTS:ObjectName="DestFileNameForCopy">
               <DTS:VariableValue
-                DTS:DataType="8">C:\DataExtract\Processed\OurPriceOnGoods_2016-10-28\</DTS:VariableValue>
+                DTS:DataType="8">C:\DataExtract\Processed\OurPriceOnGoods_2016-10-31\</DTS:VariableValue>
             </DTS:Variable>
             <DTS:Variable
               DTS:CreationName=""
@@ -241,6 +261,42 @@
               TaskOperationType="DeleteFile"
               TaskSourcePath="User::Path_For_Delete"
               TaskIsSourceVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\InsertPkgAudit"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{75510126-0C8C-4A13-B296-96B7242927B4}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="InsertPkgAudit"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{ADDA4174-16F5-4D20-85CB-27BFEE20CDF2}"
+              SQLTask:SqlStatementSource="  insert [dbo].[PkgAudit] ([PackageName],[DateOfLoad],[NumberofRecords],[FileName])&#xA;  values (?,GETDATE(),?,?)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::Row_C"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="20"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::FileName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -529,13 +585,47 @@
                     </output>
                   </outputs>
                 </component>
+                <component
+                  refId="Package\Foreach Loop Container\OurPriceonGoods\Row Count"
+                  componentClassID="{E2697D8C-70DA-42B2-8208-A19CE3A9FE41}"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Row Count">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::Row_C</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\OurPriceonGoods\Row Count.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\OurPriceonGoods\Row Count.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\Foreach Loop Container\OurPriceonGoods\Row Count.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
               </components>
               <paths>
                 <path
                   refId="Package\Foreach Loop Container\OurPriceonGoods.Paths[Flat File Source Output]"
-                  endId="Package\Foreach Loop Container\OurPriceonGoods\OurPriceOnGoods.Inputs[OLE DB Destination Input]"
+                  endId="Package\Foreach Loop Container\OurPriceonGoods\Row Count.Inputs[Row Count Input 1]"
                   name="Flat File Source Output"
                   startId="Package\Foreach Loop Container\OurPriceonGoods\Flat File Source.Outputs[Flat File Source Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\OurPriceonGoods.Paths[Row Count Output 1]"
+                  endId="Package\Foreach Loop Container\OurPriceonGoods\OurPriceOnGoods.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\Foreach Loop Container\OurPriceonGoods\Row Count.Outputs[Row Count Output 1]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -545,7 +635,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{C972E787-AD61-49D8-9B3A-6C378686F941}"
+          DTS:DTSID="{2E218D25-AD7D-4052-B27B-660FE20306BE}"
           DTS:From="Package\Foreach Loop Container\OurPriceonGoods"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -558,12 +648,20 @@
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
           DTS:To="Package\Foreach Loop Container\delete_files" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{3FB0826F-B194-4D6E-8AB2-E1DD8BF01B8C}"
+          DTS:From="Package\Foreach Loop Container\delete_files"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Foreach Loop Container\InsertPkgAudit" />
       </DTS:PrecedenceConstraints>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{BEA07FB5-2EB0-405C-84EB-CE3367723533}"
-          DTS:ObjectName="{BEA07FB5-2EB0-405C-84EB-CE3367723533}"
+          DTS:DTSID="{F599DD76-A3D0-4C76-9D1D-446CC84CCB64}"
+          DTS:ObjectName="{F599DD76-A3D0-4C76-9D1D-446CC84CCB64}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::FileName" />
       </DTS:ForEachVariableMappings>
@@ -608,39 +706,53 @@
           Id="Package\File System Task"
           TopLeft="80.5,98.5" />
         <NodeLayout
+          Size="149,42"
+          Id="Package\Foreach Loop Container\Copy_To_Arch"
+          TopLeft="42,85" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\Foreach Loop Container\delete_files"
+          TopLeft="48,157" />
+        <NodeLayout
           Size="162,42"
           Id="Package\Foreach Loop Container\OurPriceonGoods"
           TopLeft="35,10" />
-        <NodeLayout
-          Size="149,42"
-          Id="Package\Foreach Loop Container\Copy_To_Arch"
-          TopLeft="32,69" />
         <EdgeLayout
-          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
-          TopLeft="197,31">
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="115.75,127">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-16,59"
+              EndConnector="0,30"
               Start="0,0"
-              End="-8.5,59">
+              End="0,22.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.5,0"
-                    Point2="22.5,0"
-                    Point3="22.5,4" />
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="116.25,52">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33"
+              Start="0,0"
+              End="0,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="22.5,55" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.5,55"
-                    Point2="22.5,59"
-                    Point3="18.5,59" />
-                  <mssgle:LineSegment
-                    End="-8.5,59" />
+                    End="0,25.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -650,35 +762,23 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="134,42"
-          Id="Package\Foreach Loop Container\delete_files"
-          TopLeft="30,134" />
+          Size="150,42"
+          Id="Package\Foreach Loop Container\InsertPkgAudit"
+          TopLeft="35,236" />
         <EdgeLayout
-          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
-          TopLeft="106.5,111">
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="112.5,199">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-9.5,23"
+              EndConnector="0,37"
               Start="0,0"
-              End="-9.5,15.5">
+              End="0,29.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,7.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,7.5"
-                    Point2="0,11.5"
-                    Point3="-4,11.5" />
-                  <mssgle:LineSegment
-                    End="-5.5,11.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5.5,11.5"
-                    Point2="-9.5,11.5"
-                    Point3="-9.5,15.5" />
-                  <mssgle:LineSegment
-                    End="-9.5,15.5" />
+                    End="0,29.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -690,8 +790,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="261,230"
-          Size="261,273"
+          PanelSize="261,343"
+          Size="261,386"
           Id="Package\Foreach Loop Container"
           TopLeft="5.5,185.5" />
         <EdgeLayout
@@ -767,8 +867,8 @@
           ParentId="Package"
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="272,514"
-          Size="272,556"
+          PanelSize="272,626"
+          Size="272,670"
           Id="86b8a859-c40a-47e0-b1a2-4585127be399"
           TopLeft="568.5,5.5">
           <GroupLayout.ChildrenIds>
@@ -786,29 +886,67 @@
     design-time-name="Package\Foreach Loop Container\OurPriceonGoods">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="164,42"
           Id="Package\Foreach Loop Container\OurPriceonGoods\OurPriceOnGoods"
-          TopLeft="625,114" />
+          TopLeft="584,218" />
         <NodeLayout
           Size="153,42"
           Id="Package\Foreach Loop Container\OurPriceonGoods\Flat File Source"
           TopLeft="628,25" />
+        <NodeLayout
+          Size="132,42"
+          Id="Package\Foreach Loop Container\OurPriceonGoods\Row Count"
+          TopLeft="633,104" />
         <EdgeLayout
           Id="Package\Foreach Loop Container\OurPriceonGoods.Paths[Flat File Source Output]"
-          TopLeft="705.75,67">
+          TopLeft="701.75,67">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,47"
+              EndConnector="0,37"
               Start="0,0"
-              End="0,39.5">
+              End="0,29.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.5" />
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\OurPriceonGoods.Paths[Row Count Output 1]"
+          TopLeft="699,146">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-33,72"
+              Start="0,0"
+              End="-33,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32"
+                    Point2="0,36"
+                    Point3="-4,36" />
+                  <mssgle:LineSegment
+                    End="-29,36" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-29,36"
+                    Point2="-33,36"
+                    Point3="-33,40" />
+                  <mssgle:LineSegment
+                    End="-33,64.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

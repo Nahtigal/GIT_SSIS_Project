@@ -11,8 +11,8 @@
   DTS:LocaleID="1058"
   DTS:ObjectName="TypeOfGoodsLoad"
   DTS:PackageType="5"
-  DTS:VersionBuild="55"
-  DTS:VersionGUID="{8CE9F6BF-2D86-4112-9DEE-1DCF019DE502}">
+  DTS:VersionBuild="56"
+  DTS:VersionGUID="{E64EFB35-5891-4E63-8CC1-7A76D810096E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -141,7 +141,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="ProcessedFullPath">
       <DTS:VariableValue
-        DTS:DataType="8">C:\DataExtract\Processed\TypeOfGoods_2016-10-28\TypesOfGoods_2016-10-27.txt</DTS:VariableValue>
+        DTS:DataType="8">C:\DataExtract\Processed\TypeOfGoods_2016-10-31\TypesOfGoods_2016-10-27.txt</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -152,7 +152,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="TypeOfGoodProcDirName">
       <DTS:VariableValue
-        DTS:DataType="8">C:\DataExtract\Processed\TypeOfGoods_2016-10-28</DTS:VariableValue>
+        DTS:DataType="8">C:\DataExtract\Processed\TypeOfGoods_2016-10-31</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -738,7 +738,7 @@
           PanelSize="334,465"
           Size="334,508"
           Id="d6f5385a-2e76-4699-8e1e-540e911afea7"
-          TopLeft="185.406204906205,21320.5793650794">
+          TopLeft="1812.07287157287,15387.2460317461">
           <GroupLayout.ChildrenIds>
             <s:String>Package\Arch_Dir_Create</s:String>
             <s:String>Package\Foreach Loop Container</s:String>
