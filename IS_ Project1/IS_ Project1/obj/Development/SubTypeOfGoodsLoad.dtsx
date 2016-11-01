@@ -11,11 +11,21 @@
   DTS:LocaleID="1058"
   DTS:ObjectName="SubTypeOfGoodsLoad"
   DTS:PackageType="5"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{DA1E2D02-96DF-4494-AF66-FF4BCE6FB650}">
+  DTS:VersionBuild="56"
+  DTS:VersionGUID="{3A3B0148-9D7B-412A-AA8D-15C7484FF72C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SMTP Connection Manager]"
+      DTS:CreationName="SMTP"
+      DTS:DTSID="{FFB2BF13-68E6-44FD-A222-A54482310461}"
+      DTS:ObjectName="SMTP Connection Manager">
+      <DTS:ObjectData>
+        <SmtpConnectionManager
+          ConnectionString="SmtpServer=OutlookAccount;UseWindowsAuthentication=True;EnableSsl=True;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[SubTypeOfGoodsLoad]"
       DTS:CreationName="FLATFILE"
@@ -78,15 +88,6 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{93B0E7B8-6466-4B7C-9213-00A058434B83}"
-      DTS:IncludeInDebugDump="6789"
-      DTS:Namespace="User"
-      DTS:ObjectName="ErrorKey">
-      <DTS:VariableValue
-        DTS:DataType="3">0</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
       DTS:DTSID="{1146B696-20BD-4E76-8C9F-50959C3F307D}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
@@ -112,6 +113,17 @@
       <DTS:VariableValue
         DTS:DataType="8"
         xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A8FF5481-7FA8-4B30-8A47-A955931904AD}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::RowC]==0 ?  &quot;Files is empty.&quot; : &quot;File  were loaded successfully.&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogText">
+      <DTS:VariableValue
+        DTS:DataType="8">Files is empty.</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -142,7 +154,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="ProcecedFileName">
       <DTS:VariableValue
-        DTS:DataType="8">C:\DataExtract\Processed\SubTypesOfGoods_2016-10-31\SubTypesOfGoods_2016-10-27.txt</DTS:VariableValue>
+        DTS:DataType="8">C:\DataExtract\Processed\SubTypesOfGoods_2016-11-01\SubTypesOfGoods_2016-10-27.txt</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -171,7 +183,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="SubTypeProcessFolder">
       <DTS:VariableValue
-        DTS:DataType="8">C:\DataExtract\Processed\SubTypesOfGoods_2016-10-31</DTS:VariableValue>
+        DTS:DataType="8">C:\DataExtract\Processed\SubTypesOfGoods_2016-11-01</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -208,7 +220,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{ADDA4174-16F5-4D20-85CB-27BFEE20CDF2}"
-          SQLTask:SqlStatementSource="exec [dbo].[PrProcessLog] ?,?, 'End'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          SQLTask:SqlStatementSource="exec [dbo].[PrProcessLog] ?,?, 'End',?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
             SQLTask:DtsVariableName="User::Key"
@@ -218,6 +230,12 @@
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="1"
             SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::LogText"
             SQLTask:ParameterDirection="Input"
             SQLTask:DataType="129"
             SQLTask:ParameterSize="-1" />
@@ -755,6 +773,26 @@
       </DTS:ForEachVariableMappings>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Send Mail Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.SendMailTask.SendMailTask, Microsoft.SqlServer.SendMailTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Send Mail Task"
+      DTS:DTSID="{81DAD5C9-F0CD-4859-8A13-B8B5AB981B32}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.SendMailTask.SendMailTask, Microsoft.SqlServer.SendMailTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Send Mail Task"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{FFB2BF13-68E6-44FD-A222-A54482310461}"
+          SendMailTask:From="rpetryk@outlook.com"
+          SendMailTask:To="rpetryk@gmail.com"
+          SendMailTask:Subject="Test from SSIS"
+          SendMailTask:MessageSource="Test message for ssis" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Start_Protocol_Insert"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:Description="Execute SQL Task"
@@ -768,7 +806,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{ADDA4174-16F5-4D20-85CB-27BFEE20CDF2}"
-          SQLTask:SqlStatementSource="execasasd [dbo].[PrProcessLog] ? output ,?,'Start'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          SQLTask:SqlStatementSource="exec [dbo].[PrProcessLog] ? output ,?,'Start',''" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
             SQLTask:DtsVariableName="User::Key"
@@ -870,7 +908,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{ADDA4174-16F5-4D20-85CB-27BFEE20CDF2}"
-              SQLTask:SqlStatementSource="exec [dbo].[PrProcessLog] ?,?, 'Error'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="exec [dbo].[PrProcessLog] ?,?, 'Error',?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::Key"
@@ -880,6 +918,12 @@
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="1"
                 SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::LogText"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
                 SQLTask:ParameterSize="-1" />
@@ -900,11 +944,15 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="162,42"
           Id="Package\ArchFolderCreate"
           TopLeft="522,499" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\EndProtocolInsert"
+          TopLeft="565,189909" />
         <NodeLayout
           Size="138,42"
           Id="Package\Foreach Loop Container\CopyToArch"
@@ -917,6 +965,10 @@
           Size="160,42"
           Id="Package\Foreach Loop Container\DeleteFiles"
           TopLeft="54,140" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Foreach Loop Container\Insert Pakage Audit"
+          TopLeft="61,222" />
         <EdgeLayout
           Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
           TopLeft="126.75,46">
@@ -973,10 +1025,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="174,42"
-          Id="Package\Foreach Loop Container\Insert Pakage Audit"
-          TopLeft="61,222" />
         <EdgeLayout
           Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
           TopLeft="134,182">
@@ -1014,10 +1062,14 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="297,3158"
-          Size="297,3201"
+          PanelSize="297,269"
+          Size="297,312"
           Id="Package\Foreach Loop Container"
-          TopLeft="490,189770" />
+          TopLeft="479,189573" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Start_Protocol_Insert"
+          TopLeft="525,333" />
         <NodeLayout
           Size="202,42"
           Id="Package\TruncateSubTypeofGoods"
@@ -1050,26 +1102,26 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="35.5,189229"
+              EndConnector="24.5,189032"
               Start="0,0"
-              End="35.5,189221.5">
+              End="24.5,189024.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,94610.5" />
+                    End="0,94512" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,94610.5"
-                    Point2="0,94614.5"
-                    Point3="4,94614.5" />
+                    Point1="0,94512"
+                    Point2="0,94516"
+                    Point3="4,94516" />
                   <mssgle:LineSegment
-                    End="31.5,94614.5" />
+                    End="20.5,94516" />
                   <mssgle:CubicBezierSegment
-                    Point1="31.5,94614.5"
-                    Point2="35.5,94614.5"
-                    Point3="35.5,94618.5" />
+                    Point1="20.5,94516"
+                    Point2="24.5,94516"
+                    Point3="24.5,94520" />
                   <mssgle:LineSegment
-                    End="35.5,189221.5" />
+                    End="24.5,189024.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1078,10 +1130,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="181,42"
-          Id="Package\Start_Protocol_Insert"
-          TopLeft="525,333" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="615.5,375">
@@ -1116,36 +1164,32 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="165,42"
-          Id="Package\EndProtocolInsert"
-          TopLeft="567,193013" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="638.5,192971">
+          TopLeft="627.5,189885">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="11,42"
+              EndConnector="20,24"
               Start="0,0"
-              End="11,34.5">
+              End="20,16.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17" />
+                    End="0,8" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,17"
-                    Point2="0,21"
-                    Point3="4,21" />
+                    Point1="0,8"
+                    Point2="0,12"
+                    Point3="4,12" />
                   <mssgle:LineSegment
-                    End="7,21" />
+                    End="16,12" />
                   <mssgle:CubicBezierSegment
-                    Point1="7,21"
-                    Point2="11,21"
-                    Point3="11,25" />
+                    Point1="16,12"
+                    Point2="20,12"
+                    Point3="20,16" />
                   <mssgle:LineSegment
-                    End="11,34.5" />
+                    End="20,16.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1154,9 +1198,25 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Send Mail Task"
+          TopLeft="985,189673" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="165,42"
+          Id="Package.EventHandlers[OnError]\Execute SQL Task"
+          TopLeft="809,123" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
   <TaskHost
     design-time-name="Package\Foreach Loop Container\Data Flow Task">
     <LayoutInfo>
@@ -1167,35 +1227,13 @@
           Id="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination"
           TopLeft="438,240" />
         <NodeLayout
-          Size="153,42"
-          Id="Package\Foreach Loop Container\Data Flow Task\Flat File Source"
-          TopLeft="443,77" />
-        <NodeLayout
           Size="132,42"
           Id="Package\Foreach Loop Container\Data Flow Task\Row Count"
           TopLeft="448,156" />
-        <EdgeLayout
-          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Flat File Source Output]"
-          TopLeft="516.75,119">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,37"
-              Start="0,0"
-              End="0,29.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Foreach Loop Container\Data Flow Task\Flat File Source"
+          TopLeft="443,77" />
         <EdgeLayout
           Id="Package\Foreach Loop Container\Data Flow Task.Paths[Row Count Output 1]"
           TopLeft="514,198">
@@ -1230,6 +1268,28 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Flat File Source Output]"
+          TopLeft="516.75,119">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -1246,17 +1306,5 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <DtsEventHandler
-    design-time-name="Package.EventHandlers[OnError]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="165,42"
-          Id="Package.EventHandlers[OnError]\Execute SQL Task"
-          TopLeft="809,123" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
