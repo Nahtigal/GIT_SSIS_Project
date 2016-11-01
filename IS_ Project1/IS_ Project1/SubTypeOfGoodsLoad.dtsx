@@ -11,21 +11,11 @@
   DTS:LocaleID="1058"
   DTS:ObjectName="SubTypeOfGoodsLoad"
   DTS:PackageType="5"
-  DTS:VersionBuild="57"
-  DTS:VersionGUID="{0F0C7917-03A6-4DEF-A5A3-D7223BEC2E77}">
+  DTS:VersionBuild="58"
+  DTS:VersionGUID="{661460AB-D012-4207-8634-C3F52BF92360}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[SMTP Connection Manager]"
-      DTS:CreationName="SMTP"
-      DTS:DTSID="{FFB2BF13-68E6-44FD-A222-A54482310461}"
-      DTS:ObjectName="SMTP Connection Manager">
-      <DTS:ObjectData>
-        <SmtpConnectionManager
-          ConnectionString="SmtpServer=OutlookAccount;UseWindowsAuthentication=True;EnableSsl=True;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[SubTypeOfGoodsLoad]"
       DTS:CreationName="FLATFILE"
