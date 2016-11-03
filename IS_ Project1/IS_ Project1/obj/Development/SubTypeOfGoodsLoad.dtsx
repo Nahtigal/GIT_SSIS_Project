@@ -11,21 +11,11 @@
   DTS:LocaleID="1058"
   DTS:ObjectName="SubTypeOfGoodsLoad"
   DTS:PackageType="5"
-  DTS:VersionBuild="56"
-  DTS:VersionGUID="{3A3B0148-9D7B-412A-AA8D-15C7484FF72C}">
+  DTS:VersionBuild="58"
+  DTS:VersionGUID="{661460AB-D012-4207-8634-C3F52BF92360}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[SMTP Connection Manager]"
-      DTS:CreationName="SMTP"
-      DTS:DTSID="{FFB2BF13-68E6-44FD-A222-A54482310461}"
-      DTS:ObjectName="SMTP Connection Manager">
-      <DTS:ObjectData>
-        <SmtpConnectionManager
-          ConnectionString="SmtpServer=OutlookAccount;UseWindowsAuthentication=True;EnableSsl=True;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[SubTypeOfGoodsLoad]"
       DTS:CreationName="FLATFILE"
@@ -154,7 +144,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="ProcecedFileName">
       <DTS:VariableValue
-        DTS:DataType="8">C:\DataExtract\Processed\SubTypesOfGoods_2016-11-01\SubTypesOfGoods_2016-10-27.txt</DTS:VariableValue>
+        DTS:DataType="8">C:\DataExtract\Processed\SubTypesOfGoods_2016-11-02\SubTypesOfGoods_2016-10-27.txt</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -183,7 +173,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="SubTypeProcessFolder">
       <DTS:VariableValue
-        DTS:DataType="8">C:\DataExtract\Processed\SubTypesOfGoods_2016-11-01</DTS:VariableValue>
+        DTS:DataType="8">C:\DataExtract\Processed\SubTypesOfGoods_2016-11-02</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -773,26 +763,6 @@
       </DTS:ForEachVariableMappings>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Send Mail Task"
-      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.SendMailTask.SendMailTask, Microsoft.SqlServer.SendMailTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:Description="Send Mail Task"
-      DTS:DTSID="{81DAD5C9-F0CD-4859-8A13-B8B5AB981B32}"
-      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.SendMailTask.SendMailTask, Microsoft.SqlServer.SendMailTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Send Mail Task"
-      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SendMailTask:SendMailTaskData
-          SendMailTask:SMTPServer="{FFB2BF13-68E6-44FD-A222-A54482310461}"
-          SendMailTask:From="rpetryk@outlook.com"
-          SendMailTask:To="rpetryk@gmail.com"
-          SendMailTask:Subject="Test from SSIS"
-          SendMailTask:MessageSource="Test message for ssis" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\Start_Protocol_Insert"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:Description="Execute SQL Task"
@@ -944,7 +914,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="162,42"
           Id="Package\ArchFolderCreate"
@@ -1198,10 +1168,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="152,42"
-          Id="Package\Send Mail Task"
-          TopLeft="985,189673" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
