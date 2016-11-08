@@ -11,11 +11,24 @@
   DTS:LocaleID="1058"
   DTS:ObjectName="OurPriceOnGoods"
   DTS:PackageType="5"
-  DTS:VersionBuild="54"
-  DTS:VersionGUID="{92878B9E-7F70-401B-80C1-A0C201BE27D4}">
+  DTS:VersionBuild="57"
+  DTS:VersionGUID="{7860CA4C-61B5-4D09-B092-F11F53C526F8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[OurPriceLog]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{D295741E-E82C-4AA0-87C4-842927FA9397}"
+      DTS:ObjectName="OurPriceLog">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::LogFileNmae]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\DataExtract\OurPriceOnGoods2016-11-04.log" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[OurPriceOnGoods]"
       DTS:CreationName="FLATFILE"
@@ -63,6 +76,18 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="OurPriceLog"
+      DTS:CreationName="DTS.LogProviderTextFile.3"
+      DTS:Description="Writes log entries for events to a CSV file"
+      DTS:DTSID="{A99A8229-5AE8-4B84-B427-692D605A766B}"
+      DTS:ObjectName="SSIS log provider for Text files">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
@@ -104,6 +129,26 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:DTSID="{4B557893-0F8C-410F-8D10-4B64222A3B10}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogDir">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\DataExtract</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8D96D817-3D7B-48DB-AAC1-F3C26F38E936}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::LogDir] +&quot;\\&quot;+ @[System::PackageName]+ SUBSTRING((DT_STR, 30, 1251)Getdate(),1,10)+ &quot;.log&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogFileNmae">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\DataExtract\OurPriceOnGoods2016-11-04.log</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
       DTS:DTSID="{866F470D-4E56-4300-95CA-F039E4165BC7}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[User::Row_C]==0 ?  &quot;Files is empty.&quot; : &quot;File  were loaded successfully.&quot;"
@@ -141,6 +186,9 @@
         DTS:DataType="3">0</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1" />
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\ArcFolderCreate"
@@ -162,9 +210,11 @@
           DTS:Namespace="User"
           DTS:ObjectName="OutPriceProcessedDir">
           <DTS:VariableValue
-            DTS:DataType="8">C:\DataExtract\Processed\OurPriceOnGoods_2016-11-01</DTS:VariableValue>
+            DTS:DataType="8">C:\DataExtract\Processed\OurPriceOnGoods_2016-11-04</DTS:VariableValue>
         </DTS:Variable>
       </DTS:Variables>
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:ObjectData>
         <FileSystemData
           TaskOperationType="CreateDirectory"
@@ -184,6 +234,8 @@
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{ADDA4174-16F5-4D20-85CB-27BFEE20CDF2}"
@@ -239,6 +291,8 @@
         </DTS:ObjectData>
       </DTS:ForEachEnumerator>
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:Executables>
         <DTS:Executable
           DTS:refId="Package\Foreach Loop Container\Copy_To_Arch"
@@ -260,7 +314,7 @@
               DTS:Namespace="User"
               DTS:ObjectName="DestFileNameForCopy">
               <DTS:VariableValue
-                DTS:DataType="8">C:\DataExtract\Processed\OurPriceOnGoods_2016-11-01\</DTS:VariableValue>
+                DTS:DataType="8">C:\DataExtract\Processed\OurPriceOnGoods_2016-11-04\</DTS:VariableValue>
             </DTS:Variable>
             <DTS:Variable
               DTS:CreationName=""
@@ -274,6 +328,8 @@
                 DTS:DataType="8">C:\DataExtract\Pending\</DTS:VariableValue>
             </DTS:Variable>
           </DTS:Variables>
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <FileSystemData
               TaskSourcePath="User::SourseFileNameForCopy"
@@ -305,6 +361,8 @@
                 DTS:DataType="8">C:\DataExtract\Pending\</DTS:VariableValue>
             </DTS:Variable>
           </DTS:Variables>
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <FileSystemData
               TaskOperationType="DeleteFile"
@@ -323,6 +381,8 @@
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="0">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{ADDA4174-16F5-4D20-85CB-27BFEE20CDF2}"
@@ -358,6 +418,8 @@
           DTS:ObjectName="OurPriceonGoods"
           DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
           <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <pipeline
               version="1">
@@ -726,6 +788,8 @@
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:EventHandlers>
         <DTS:EventHandler
           DTS:refId="Package\Start_Protocol_Insert.EventHandlers[OnError]"
@@ -779,6 +843,8 @@
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{ADDA4174-16F5-4D20-85CB-27BFEE20CDF2}"
@@ -885,6 +951,44 @@
     <LayoutInfo>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
+        <NodeLayout
+          Size="165,42"
+          Id="Package\EndProtocolInsert"
+          TopLeft="798,43169" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="827.5,43128">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53,41"
+              Start="0,0"
+              End="53,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="4,20.5" />
+                  <mssgle:LineSegment
+                    End="49,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49,20.5"
+                    Point2="53,20.5"
+                    Point3="53,24.5" />
+                  <mssgle:LineSegment
+                    End="53,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <NodeLayout
           Size="154,42"
           Id="Package\Truncate_Table"
@@ -1101,44 +1205,6 @@
             <s:String>Package.PrecedenceConstraints[Constraint 2]</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>
-        <NodeLayout
-          Size="165,42"
-          Id="Package\EndProtocolInsert"
-          TopLeft="798,43169" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="827.5,43128">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="53,41"
-              Start="0,0"
-              End="53,33.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.5"
-                    Point2="0,20.5"
-                    Point3="4,20.5" />
-                  <mssgle:LineSegment
-                    End="49,20.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="49,20.5"
-                    Point2="53,20.5"
-                    Point3="53,24.5" />
-                  <mssgle:LineSegment
-                    End="53,33.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1158,7 +1224,7 @@
     design-time-name="Package\Foreach Loop Container\OurPriceonGoods">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="132,42"
           Id="Package\Foreach Loop Container\OurPriceonGoods\Row Count"
@@ -1202,9 +1268,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1226,9 +1290,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

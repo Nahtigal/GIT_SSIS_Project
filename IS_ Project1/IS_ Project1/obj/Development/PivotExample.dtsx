@@ -11,11 +11,31 @@
   DTS:LocaleID="1058"
   DTS:ObjectName="PivotExample"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{C934364B-1274-4A63-A276-8FBD9556C323}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{A222CEE2-EE7D-42FB-B0B1-00B971960CFC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{38FB4317-88CA-4B36-A28E-7DA7A3FF2F76}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Lv-179DB\Desktop\qqqqq.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{B3386045-42EA-43CD-A46D-46B0C4DA96B0}"
+      DTS:ObjectName="Excel Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Lv-179DB\Desktop\www.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.Lv-200.DB]"
       DTS:CreationName="OLEDB"
@@ -44,25 +64,234 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task 1\Multicast"
-              componentClassID="{EC139FBC-694E-490B-8EA7-35690FB0F445}"
-              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
-              name="Multicast">
+              refId="Package\Data Flow Task 1\Data Conversion"
+              componentClassID="{62B1106C-7DB8-4EC8-ADD6-4C664DFFC54A}"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task 1\Multicast.Inputs[Multicast Input 1]"
-                  name="Multicast Input 1">
+                  refId="Package\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[goods]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="82"
+                      cachedName="goods"
+                      lineageId="Package\Data Flow Task 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[goods]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input].Columns[Country]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Country"
+                      lineageId="Package\Data Flow Task 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[Country]" />
+                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task 1\Multicast.Outputs[Multicast Output 1]"
-                  dangling="true"
-                  deleteOutputOnPathDetached="true"
-                  name="Multicast Output 1"
-                  synchronousInputId="Package\Data Flow Task 1\Multicast.Inputs[Multicast Input 1]">
+                  refId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of goods]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="82"
+                      lineageId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of goods]"
+                      name="Copy of goods"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[goods]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Country]"
+                      name="Copy of Country"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[Country]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task 1\Excel Destination"
+              componentClassID="{1F5D5712-2FBA-4CB9-A95A-86C1F336E1DA}"
+              contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Excel Destination"
+              name="Excel Destination"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Excel_Destination</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task 1\Excel Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task 1\Excel Destination.Inputs[Excel Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Excel Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Excel Destination.Inputs[Excel Destination Input].Columns[k]"
+                      cachedDataType="i4"
+                      cachedName="k"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[k]"
+                      lineageId="Package\Data Flow Task 1\Sort.Outputs[Sort Output].Columns[k]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of goods]"
+                      cachedDataType="wstr"
+                      cachedLength="82"
+                      cachedName="Copy of goods"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Copy of goods]"
+                      lineageId="Package\Data Flow Task 1\Sort.Outputs[Sort Output].Columns[Copy of goods]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Excel Destination.Inputs[Excel Destination Input].Columns[Copy of Country]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Country"
+                      externalMetadataColumnId="Package\Data Flow Task 1\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Copy of Country]"
+                      lineageId="Package\Data Flow Task 1\Sort.Outputs[Sort Output].Columns[Copy of Country]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[k]"
+                      dataType="r8"
+                      name="k" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Copy of goods]"
+                      dataType="nText"
+                      name="Copy of goods" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task 1\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Copy of Country]"
+                      dataType="nText"
+                      name="Copy of Country" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task 1\Excel Destination.Outputs[Excel Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Excel Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task 1\Excel Destination.Inputs[Excel Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task 1\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
               </outputs>
@@ -222,687 +451,6 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task 1\Pivot"
-              componentClassID="{AEB2AFAE-2201-48B1-B290-42BB8C9149DD}"
-              contactInfo="Pivot;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Compacts an input data flow by pivoting it on a column value, making it less normalized. The input data should be sorted by the pivot column because a pivot happens each time data in the pivot column changes. Note: duplicate rows will cause this transformation to fail."
-              name="Pivot"
-              usesDispositions="true"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Causes the Pivot Transform to ignore rows containing unrecognized values in the Pivot Key column and to report the complete list of unmatched values at the end of DataFlow execution. Useful for collecting a list of values from input rows that can be used to automatically generate output columns."
-                  name="PassThroughUnmatchedPivotKeys">true</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\Data Flow Task 1\Pivot.Inputs[Pivot Default Input]"
-                  hasSideEffects="true"
-                  name="Pivot Default Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Inputs[Pivot Default Input].Columns[Country]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Country"
-                      lineageId="Package\Data Flow Task 1\Sort.Outputs[Sort Output].Columns[Country]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Describes how the input column participates in the pivot operation. It can help define a set of related records, it can hold the key that uniquely identifies a row within the related set and upon which the values are pivoted, it can hold a value that gets transferred into a pivoted column or it can contain a value that simply passes straight though the pivot unchanged."
-                          name="PivotUsage">2</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Inputs[Pivot Default Input].Columns[goods]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="82"
-                      cachedName="goods"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\Data Flow Task 1\Sort.Outputs[Sort Output].Columns[goods]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Describes how the input column participates in the pivot operation. It can help define a set of related records, it can hold the key that uniquely identifies a row within the related set and upon which the values are pivoted, it can hold a value that gets transferred into a pivoted column or it can contain a value that simply passes straight though the pivot unchanged."
-                          name="PivotUsage">1</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output]"
-                  name="Pivot Default Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[goods]"
-                      codePage="1252"
-                      dataType="str"
-                      length="82"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[goods]"
-                      name="goods">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\Sort.Outputs[Sort Output].Columns[goods]}</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue" />
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Bangladesh_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Bangladesh_BOOLEAN]"
-                      name="C_Bangladesh_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Bangladesh</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Bulgaria_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Bulgaria_BOOLEAN]"
-                      name="C_Bulgaria_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Bulgaria</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Cambodia_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Cambodia_BOOLEAN]"
-                      name="C_Cambodia_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Cambodia</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_China_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_China_BOOLEAN]"
-                      name="C_China_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">China</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Czech Republic_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Czech Republic_BOOLEAN]"
-                      name="C_Czech Republic_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Czech Republic</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Denmark_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Denmark_BOOLEAN]"
-                      name="C_Denmark_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Denmark</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Egypt_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Egypt_BOOLEAN]"
-                      name="C_Egypt_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Egypt</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Ethiopia_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Ethiopia_BOOLEAN]"
-                      name="C_Ethiopia_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Ethiopia</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_France_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_France_BOOLEAN]"
-                      name="C_France_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">France</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Germany_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Germany_BOOLEAN]"
-                      name="C_Germany_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Germany</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Great Britain_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Great Britain_BOOLEAN]"
-                      name="C_Great Britain_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Great Britain</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Greece_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Greece_BOOLEAN]"
-                      name="C_Greece_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Greece</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_India_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_India_BOOLEAN]"
-                      name="C_India_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">India</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Indonesia_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Indonesia_BOOLEAN]"
-                      name="C_Indonesia_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Indonesia</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Italy_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Italy_BOOLEAN]"
-                      name="C_Italy_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Italy</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Kenya_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Kenya_BOOLEAN]"
-                      name="C_Kenya_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Kenya</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Luxembourg_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Luxembourg_BOOLEAN]"
-                      name="C_Luxembourg_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Luxembourg</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Myanmar_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Myanmar_BOOLEAN]"
-                      name="C_Myanmar_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Myanmar</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Netherlands_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Netherlands_BOOLEAN]"
-                      name="C_Netherlands_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Netherlands</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Pakistan_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Pakistan_BOOLEAN]"
-                      name="C_Pakistan_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Pakistan</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Poland_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Poland_BOOLEAN]"
-                      name="C_Poland_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Poland</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Portugal_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Portugal_BOOLEAN]"
-                      name="C_Portugal_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Portugal</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Romania_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Romania_BOOLEAN]"
-                      name="C_Romania_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Romania</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_South Korea_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_South Korea_BOOLEAN]"
-                      name="C_South Korea_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">South Korea</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Spain_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Spain_BOOLEAN]"
-                      name="C_Spain_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Spain</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Sri Lanka_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Sri Lanka_BOOLEAN]"
-                      name="C_Sri Lanka_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Sri Lanka</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Sweden_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Sweden_BOOLEAN]"
-                      name="C_Sweden_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Sweden</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Thailand_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Thailand_BOOLEAN]"
-                      name="C_Thailand_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Thailand</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Tunisia_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Tunisia_BOOLEAN]"
-                      name="C_Tunisia_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Tunisia</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Turkey_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Turkey_BOOLEAN]"
-                      name="C_Turkey_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Turkey</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_USA_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_USA_BOOLEAN]"
-                      name="C_USA_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">USA</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Vietnam_BOOLEAN]"
-                      dataType="bool"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output].Columns[C_Vietnam_BOOLEAN]"
-                      name="C_Vietnam_BOOLEAN">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Data Flow Task 1\-1:invalid}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">Vietnam</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Pivot Error Output"
-                  synchronousInputId="Package\Data Flow Task 1\Pivot.Inputs[Pivot Default Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Data Flow Task 1\Sort"
               componentClassID="{5B1A3FF5-D366-4D75-AD1F-F19A36FCBEDB}"
               contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
@@ -926,30 +474,10 @@
                   name="Sort Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Sort.Inputs[Sort Input].Columns[goods]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="82"
-                      cachedName="goods"
-                      lineageId="Package\Data Flow Task 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[goods]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">1</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Data Flow Task 1\Sort.Inputs[Sort Input].Columns[Country]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Country"
-                      lineageId="Package\Data Flow Task 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[Country]">
+                      refId="Package\Data Flow Task 1\Sort.Inputs[Sort Input].Columns[k]"
+                      cachedDataType="i4"
+                      cachedName="k"
+                      lineageId="Package\Data Flow Task 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[k]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -962,10 +490,28 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task 1\Sort.Inputs[Sort Input].Columns[k]"
-                      cachedDataType="i4"
-                      cachedName="k"
-                      lineageId="Package\Data Flow Task 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[k]">
+                      refId="Package\Data Flow Task 1\Sort.Inputs[Sort Input].Columns[Copy of goods]"
+                      cachedDataType="wstr"
+                      cachedLength="82"
+                      cachedName="Copy of goods"
+                      lineageId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of goods]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task 1\Sort.Inputs[Sort Input].Columns[Copy of Country]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Country"
+                      lineageId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Country]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -988,37 +534,6 @@
                   name="Sort Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task 1\Sort.Outputs[Sort Output].Columns[goods]"
-                      codePage="1252"
-                      dataType="str"
-                      length="82"
-                      lineageId="Package\Data Flow Task 1\Sort.Outputs[Sort Output].Columns[goods]"
-                      name="goods"
-                      sortKeyPosition="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[goods]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task 1\Sort.Outputs[Sort Output].Columns[Country]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\Data Flow Task 1\Sort.Outputs[Sort Output].Columns[Country]"
-                      name="Country">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[Country]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\Data Flow Task 1\Sort.Outputs[Sort Output].Columns[k]"
                       dataType="i4"
                       lineageId="Package\Data Flow Task 1\Sort.Outputs[Sort Output].Columns[k]"
@@ -1031,6 +546,35 @@
                           name="SortColumnId">#{Package\Data Flow Task 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[k]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Sort.Outputs[Sort Output].Columns[Copy of goods]"
+                      dataType="wstr"
+                      length="82"
+                      lineageId="Package\Data Flow Task 1\Sort.Outputs[Sort Output].Columns[Copy of goods]"
+                      name="Copy of goods"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of goods]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task 1\Sort.Outputs[Sort Output].Columns[Copy of Country]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task 1\Sort.Outputs[Sort Output].Columns[Copy of Country]"
+                      name="Copy of Country">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Country]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1039,18 +583,18 @@
           </components>
           <paths>
             <path
-              refId="Package\Data Flow Task 1.Paths[OLE DB Source Output]"
+              refId="Package\Data Flow Task 1.Paths[Data Conversion Output]"
               endId="Package\Data Flow Task 1\Sort.Inputs[Sort Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task 1\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task 1.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task 1\Data Conversion.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
               startId="Package\Data Flow Task 1\OLE DB Source.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Data Flow Task 1.Paths[Pivot Default Output]"
-              endId="Package\Data Flow Task 1\Multicast.Inputs[Multicast Input 1]"
-              name="Pivot Default Output"
-              startId="Package\Data Flow Task 1\Pivot.Outputs[Pivot Default Output]" />
-            <path
               refId="Package\Data Flow Task 1.Paths[Sort Output]"
-              endId="Package\Data Flow Task 1\Pivot.Inputs[Pivot Default Input]"
+              endId="Package\Data Flow Task 1\Excel Destination.Inputs[Excel Destination Input]"
               name="Sort Output"
               startId="Package\Data Flow Task 1\Sort.Outputs[Sort Output]" />
           </paths>
@@ -1081,79 +625,67 @@
     design-time-name="Package\Data Flow Task 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="152,42"
           Id="Package\Data Flow Task 1\OLE DB Source"
-          TopLeft="617,67" />
+          TopLeft="618,58" />
         <NodeLayout
-          Size="104,42"
-          Id="Package\Data Flow Task 1\Pivot"
-          TopLeft="610,270" />
+          Size="158,42"
+          Id="Package\Data Flow Task 1\Data Conversion"
+          TopLeft="695,143" />
+        <EdgeLayout
+          Id="Package\Data Flow Task 1.Paths[OLE DB Source Output]"
+          TopLeft="694,100">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="80,43"
+              Start="0,0"
+              End="80,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="4,21.5" />
+                  <mssgle:LineSegment
+                    End="76,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="76,21.5"
+                    Point2="80,21.5"
+                    Point3="80,25.5" />
+                  <mssgle:LineSegment
+                    End="80,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <NodeLayout
           Size="100,42"
           Id="Package\Data Flow Task 1\Sort"
-          TopLeft="626,160" />
+          TopLeft="721,210" />
         <EdgeLayout
-          Id="Package\Data Flow Task 1.Paths[Sort Output]"
-          TopLeft="676,202">
+          Id="Package\Data Flow Task 1.Paths[Data Conversion Output]"
+          TopLeft="772.5,185">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-14,68"
+              EndConnector="0,25"
               Start="0,0"
-              End="-14,60.5">
+              End="0,17.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30"
-                    Point2="0,34"
-                    Point3="-4,34" />
-                  <mssgle:LineSegment
-                    End="-10,34" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-10,34"
-                    Point2="-14,34"
-                    Point3="-14,38" />
-                  <mssgle:LineSegment
-                    End="-14,60.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task 1.Paths[OLE DB Source Output]"
-          TopLeft="693,109">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-17,51"
-              Start="0,0"
-              End="-17,43.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.5"
-                    Point2="0,25.5"
-                    Point3="-4,25.5" />
-                  <mssgle:LineSegment
-                    End="-13,25.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-13,25.5"
-                    Point2="-17,25.5"
-                    Point3="-17,29.5" />
-                  <mssgle:LineSegment
-                    End="-17,43.5" />
+                    End="0,17.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1163,47 +695,66 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="122,42"
-          Id="Package\Data Flow Task 1\Multicast"
-          TopLeft="578,356" />
+          Size="161,42"
+          Id="Package\Data Flow Task 1\Excel Destination"
+          TopLeft="709,306" />
         <EdgeLayout
-          Id="Package\Data Flow Task 1.Paths[Pivot Default Output]"
-          TopLeft="662,312">
+          Id="Package\Data Flow Task 1.Paths[Sort Output]"
+          TopLeft="771,252">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-23,44"
+              EndConnector="18.5,54"
               Start="0,0"
-              End="-23,36.5">
+              End="18.5,46.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18" />
+                    End="0,23" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18"
-                    Point2="0,22"
-                    Point3="-4,22" />
+                    Point1="0,23"
+                    Point2="0,27"
+                    Point3="4,27" />
                   <mssgle:LineSegment
-                    End="-19,22" />
+                    End="14.5,27" />
                   <mssgle:CubicBezierSegment
-                    Point1="-19,22"
-                    Point2="-23,22"
-                    Point3="-23,26" />
+                    Point1="14.5,27"
+                    Point2="18.5,27"
+                    Point3="18.5,31" />
                   <mssgle:LineSegment
-                    End="-23,36.5" />
+                    End="18.5,46.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-19.5,27,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task 1\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task 1\Excel Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

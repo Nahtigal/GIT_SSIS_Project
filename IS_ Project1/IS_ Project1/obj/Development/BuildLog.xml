@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>IS_ Project1</Name>
-    <LastWriteTime>2016-11-03T11:47:15.8523984Z</LastWriteTime>
+    <LastWriteTime>2016-11-04T10:05:58.5722734Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -13,7 +13,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>TypeOfGoodsLoad.dtsx</Name>
-      <LastWriteTime>2016-11-01T11:45:14.7854297Z</LastWriteTime>
+      <LastWriteTime>2016-11-04T10:05:58.5478594Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -23,7 +23,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SubTypeOfGoodsLoad.dtsx</Name>
-      <LastWriteTime>2016-11-01T17:27:01.3752734Z</LastWriteTime>
+      <LastWriteTime>2016-11-04T10:05:58.5439531Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -33,7 +33,12 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>PivotExample.dtsx</Name>
-      <LastWriteTime>2016-11-03T12:00:17.6356015Z</LastWriteTime>
+      <LastWriteTime>2016-11-04T09:36:54.7890703Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Executor.dtsx</Name>
+      <LastWriteTime>2016-11-04T10:22:20.4521563Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
