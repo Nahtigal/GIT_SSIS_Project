@@ -2,28 +2,28 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>IS_ Project1</Name>
-    <LastWriteTime>2016-11-04T10:05:58.5722734Z</LastWriteTime>
+    <LastWriteTime>2016-11-09T12:29:51.0905547Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>DataExtstracting.dtsx</Name>
-      <LastWriteTime>2016-10-31T11:13:59.8053388Z</LastWriteTime>
+      <LastWriteTime>2016-11-08T17:54:04.3897266Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>TypeOfGoodsLoad.dtsx</Name>
-      <LastWriteTime>2016-11-04T10:05:58.5478594Z</LastWriteTime>
+      <LastWriteTime>2016-11-08T17:56:30.7696094Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>OurPriceOnGoods.dtsx</Name>
-      <LastWriteTime>2016-11-01T11:52:30.4299609Z</LastWriteTime>
+      <LastWriteTime>2016-11-08T17:54:03.216875Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SubTypeOfGoodsLoad.dtsx</Name>
-      <LastWriteTime>2016-11-04T10:05:58.5439531Z</LastWriteTime>
+      <LastWriteTime>2016-11-08T17:54:03.2188281Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -32,13 +32,18 @@
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>PivotExample.dtsx</Name>
-      <LastWriteTime>2016-11-04T09:36:54.7890703Z</LastWriteTime>
+      <Name>Executor.dtsx</Name>
+      <LastWriteTime>2016-11-08T17:54:03.2158984Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>Executor.dtsx</Name>
-      <LastWriteTime>2016-11-04T10:22:20.4521563Z</LastWriteTime>
+      <Name>WarehouseStageLoad.dtsx</Name>
+      <LastWriteTime>2016-11-09T12:29:51.0427031Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>WarehouseLookupMerge.dtsx</Name>
+      <LastWriteTime>2016-11-09T14:55:07.1735625Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

@@ -5,21 +5,21 @@
   DTS:CreationName="SSIS.Package.3"
   DTS:CreatorComputerName="WIN-179"
   DTS:CreatorName="WIN-179\Lv-179DB"
-  DTS:DTSID="{BDB49C73-AB29-436A-8DC7-1574CD77D1B1}"
+  DTS:DTSID="{AD6D899A-990B-4464-8062-C4953C30840B}"
   DTS:ExecutableType="SSIS.Package.3"
   DTS:LastModifiedProductVersion="11.0.6020.0"
   DTS:LocaleID="1058"
   DTS:ObjectName="WarehouseLoad"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{AC339028-4EC7-4348-A451-2FFA904C1090}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{39889A9B-09F2-432B-AAC5-5053F249FC06}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[WarehouseLoad]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{CE97C600-3757-439B-B063-2D38ABC72D5F}"
+      DTS:DTSID="{2AE8B50C-7CF6-44B2-B20F-AC42A6A09D33}"
       DTS:ObjectName="WarehouseLoad">
       <DTS:PropertyExpression
         DTS:Name="ConnectionString">@[User::PendingDirName]+"\\"+ @[User::FileName]</DTS:PropertyExpression>
@@ -40,7 +40,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="GoodsId"
-              DTS:DTSID="{E084D350-B8EC-48B5-92A3-226B6A32203E}"
+              DTS:DTSID="{D0344DA3-218B-4C99-AE7C-76585385F144}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -48,7 +48,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="SizeId"
-              DTS:DTSID="{236DB8F0-D5AF-4297-867A-2C5F39EE9EDD}"
+              DTS:DTSID="{A1B5BB9C-3319-4994-9C30-A5D6D3B50FAB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -56,7 +56,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="QtyOnWarehouse"
-              DTS:DTSID="{B2EE92E0-D223-4E46-80A1-E7C77C01B8EA}"
+              DTS:DTSID="{E0C04993-AAFC-4213-B724-75F8A6CB419E}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -66,7 +66,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{F72A5113-DAE5-46EF-B294-3D5FA9379C0A}"
+      DTS:DTSID="{22E2863E-2BBF-4FE7-BA7D-929DBAB7AE6E}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="FileName">
@@ -75,7 +75,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{46C055E7-BC5A-4F9F-9695-065A63095505}"
+      DTS:DTSID="{01775EA3-557C-415A-931A-9F7FEC7C5EA2}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="Key">
@@ -85,7 +85,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{8D0649BA-FA19-4196-8DB5-DE088737F5CB}"
+      DTS:DTSID="{76B5D206-9BEC-434D-9965-F95398C29ED1}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[User::RowC]==0 ?  &quot;Files is empty.&quot; : &quot;File  were loaded successfully.&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -96,7 +96,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{03FC4AE5-BA1C-497F-996F-A6E733333CC3}"
+      DTS:DTSID="{F7534CA7-86B9-4E98-8855-1D3EE1555874}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="PendingDirName">
@@ -105,7 +105,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{E59EDBD0-034E-4D24-B82B-0C502445DC8A}"
+      DTS:DTSID="{E66C2520-5D22-49FD-8A75-9AC652296DCD}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="ProcessedDirName">
@@ -114,7 +114,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{378F48E6-AE6D-4A44-950C-FE36A3623DB4}"
+      DTS:DTSID="{4A762379-10D3-48A0-9BE1-AE9034435273}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[User::ProcessedDirName]+&quot;\\&quot;+ @[User::FileName]"
       DTS:IncludeInDebugDump="2345"
@@ -125,7 +125,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{48776E8C-CB63-4FBE-BFD6-446A2E75A594}"
+      DTS:DTSID="{E6DA4AD3-8C81-4267-93E5-5184DB4FC568}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="RowC">
@@ -134,14 +134,14 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{A8DE0E08-D5E4-4E9B-AC39-FB777B57B2DA}"
+      DTS:DTSID="{747E35B1-76A0-45AB-BC30-BE33C2586191}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[User::ProcessedDirName] +&quot;\\WareHouse_&quot;+SUBSTRING( (DT_STR, 40, 1254) GETDATE(), 1, 10)"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="WareHouseProcDirName">
       <DTS:VariableValue
-        DTS:DataType="8">C:\DataExtract\Processed\WareHouse_2016-11-07</DTS:VariableValue>
+        DTS:DataType="8">C:\DataExtract\Processed\WareHouse_2016-11-09</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -149,7 +149,7 @@
       DTS:refId="Package\Arch_Dir_Create"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:Description="File System Task"
-      DTS:DTSID="{a7a50992-73a6-4600-913b-92e84378fac4}"
+      DTS:DTSID="{95EE1FBF-3726-4A19-A9CA-03B414980E51}"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:LocaleID="-1"
       DTS:ObjectName="Arch_Dir_Create"
@@ -168,7 +168,7 @@
       DTS:refId="Package\EndProtocolInsert"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{5acf0f94-b57a-48b9-9608-314132a17aa2}"
+      DTS:DTSID="{40C13A21-7E1F-49E0-B149-89C8E2902EFF}"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:LocaleID="-1"
       DTS:ObjectName="EndProtocolInsert"
@@ -204,13 +204,13 @@
       DTS:refId="Package\Foreach Loop Container"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
-      DTS:DTSID="{5324c0fb-42ce-4f4c-a43b-b7643d48565e}"
+      DTS:DTSID="{3B60E525-5E3A-48AD-9997-7895142BE5EF}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
       DTS:ObjectName="Foreach Loop Container">
       <DTS:ForEachEnumerator
         DTS:CreationName="DTS.ForEachFileEnumerator.3"
-        DTS:DTSID="{b79cd65d-7fa1-4bb3-b50d-a28e0a5331df}"
+        DTS:DTSID="{4EAFE47B-1044-4FB4-ACD6-6CCA40CE1FD7}"
         DTS:ObjectName="{4F636763-CE55-450C-89CA-96AAE68A1150}">
         <DTS:PropertyExpression
           DTS:Name="Directory">@[User::PendingDirName]</DTS:PropertyExpression>
@@ -230,7 +230,7 @@
       <DTS:Variables>
         <DTS:Variable
           DTS:CreationName=""
-          DTS:DTSID="{4A16F10F-E01F-40E3-BF12-13B46AF1CC26}"
+          DTS:DTSID="{181BACA2-99D3-472D-8AC9-315E1B4A23ED}"
           DTS:EvaluateAsExpression="True"
           DTS:Expression="@[User::PendingDirName]+&quot;\\&quot;+ @[User::FileName]"
           DTS:IncludeInDebugDump="2345"
@@ -245,7 +245,7 @@
           DTS:refId="Package\Foreach Loop Container\Copy to ArchFolder"
           DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
           DTS:Description="File System Task"
-          DTS:DTSID="{02086b69-49f3-4f90-bd5f-a92ece357678}"
+          DTS:DTSID="{2E12ADEB-C1D5-46E8-9DA5-01623F1167DC}"
           DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
           DTS:LocaleID="-1"
           DTS:ObjectName="Copy to ArchFolder"
@@ -265,7 +265,7 @@
           DTS:refId="Package\Foreach Loop Container\Data Flow Task"
           DTS:CreationName="SSIS.Pipeline.3"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{109c5bda-afe0-4c58-94e3-0cfbbb92da26}"
+          DTS:DTSID="{D969007A-8436-40FA-B969-0F0962D463E8}"
           DTS:ExecutableType="SSIS.Pipeline.3"
           DTS:LocaleID="-1"
           DTS:ObjectName="Data Flow Task"
@@ -682,7 +682,7 @@
           DTS:refId="Package\Foreach Loop Container\Delete file"
           DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
           DTS:Description="File System Task"
-          DTS:DTSID="{1f691ac0-d675-43ea-9a7e-dc995951380f}"
+          DTS:DTSID="{32ACA79C-AD18-48BB-B1AC-CB4D71FB81FD}"
           DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete file"
@@ -700,7 +700,7 @@
           DTS:refId="Package\Foreach Loop Container\InsertPkgAudit"
           DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{1be47bb1-d4a5-48d4-9287-32f631180f10}"
+          DTS:DTSID="{976E4700-F3EE-493A-9062-ED14A7160608}"
           DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
           DTS:LocaleID="-1"
           DTS:ObjectName="InsertPkgAudit"
@@ -737,7 +737,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{716cc48d-19c3-40f5-bf65-80b9b652d77c}"
+          DTS:DTSID="{43C38D93-8F1B-45C4-868F-A4D381FC6460}"
           DTS:From="Package\Foreach Loop Container\Data Flow Task"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -745,7 +745,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
-          DTS:DTSID="{fd45b178-d1b1-413f-af6c-0360abbea05a}"
+          DTS:DTSID="{C8A558B2-EB8B-4C17-A7B2-6865EDCE01C5}"
           DTS:From="Package\Foreach Loop Container\Delete file"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
@@ -753,7 +753,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
-          DTS:DTSID="{47ccf446-7b1e-443d-b77e-cae24fc65bf3}"
+          DTS:DTSID="{92094C3F-F2B4-4AF2-8DD6-5448C7E88DFD}"
           DTS:From="Package\Foreach Loop Container\Copy to ArchFolder"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
@@ -762,8 +762,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{83DA30C6-C3AA-46EF-B15E-E9B31000ED69}"
-          DTS:ObjectName="{83DA30C6-C3AA-46EF-B15E-E9B31000ED69}"
+          DTS:DTSID="{EEDAEAFA-D5DD-4F1C-927A-778E96F49C2F}"
+          DTS:ObjectName="{EEDAEAFA-D5DD-4F1C-927A-778E96F49C2F}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::FileName" />
       </DTS:ForEachVariableMappings>
@@ -772,7 +772,7 @@
       DTS:refId="Package\Start_protocol_insert"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{6194bf88-f512-4fd4-9dfa-de0aaad2821c}"
+      DTS:DTSID="{CF4135F0-B96B-4F09-9804-9C348B49291A}"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:LocaleID="-1"
       DTS:ObjectName="Start_protocol_insert"
@@ -802,7 +802,7 @@
       DTS:refId="Package\Truncate table"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{6b1929a4-8267-41b5-94a4-d7f46a724e76}"
+      DTS:DTSID="{590CA829-6CEC-42BD-8A4A-54DD356FEDF3}"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate table"
@@ -820,7 +820,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{baa54dce-f28d-4690-82cb-4352682f69db}"
+      DTS:DTSID="{CF26AC95-6D97-4ED7-A05A-2AA4DB8E3408}"
       DTS:From="Package\Truncate table"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -828,7 +828,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{9297a41a-bf1a-44ca-a8c0-f1c49ba5c213}"
+      DTS:DTSID="{3AAC8E2B-7ECB-4DF0-B1D0-4D042DF0AF8D}"
       DTS:From="Package\Arch_Dir_Create"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -836,7 +836,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{42f6fba7-0949-47d3-b5c5-5d564e87117f}"
+      DTS:DTSID="{53628BFB-9290-441E-B03F-0CD4CC208CF2}"
       DTS:From="Package\Start_protocol_insert"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -844,7 +844,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{7e54c2c5-06ee-4786-a872-14bb5ecce16a}"
+      DTS:DTSID="{ECEED5A4-0858-44B3-9EAD-15263951A97A}"
       DTS:From="Package\Foreach Loop Container"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
@@ -1153,17 +1153,21 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="173,42"
-          Id="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination"
-          TopLeft="556,337" />
-        <NodeLayout
           Size="153,42"
           Id="Package\Foreach Loop Container\Data Flow Task\Flat File Source"
           TopLeft="602,51" />
         <NodeLayout
+          Size="156,42"
+          Id="Package\Foreach Loop Container\Data Flow Task\Derived Column"
+          TopLeft="629,238" />
+        <NodeLayout
           Size="132,42"
           Id="Package\Foreach Loop Container\Data Flow Task\Row Count"
           TopLeft="591,154" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination"
+          TopLeft="556,337" />
         <EdgeLayout
           Id="Package\Foreach Loop Container\Data Flow Task.Paths[Flat File Source Output]"
           TopLeft="678.5,93">
@@ -1198,44 +1202,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="156,42"
-          Id="Package\Foreach Loop Container\Data Flow Task\Derived Column"
-          TopLeft="629,238" />
-        <EdgeLayout
-          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Row Count Output 1]"
-          TopLeft="657,196">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="50,42"
-              Start="0,0"
-              End="50,34.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17"
-                    Point2="0,21"
-                    Point3="4,21" />
-                  <mssgle:LineSegment
-                    End="46,21" />
-                  <mssgle:CubicBezierSegment
-                    Point1="46,21"
-                    Point2="50,21"
-                    Point3="50,25" />
-                  <mssgle:LineSegment
-                    End="50,34.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach Loop Container\Data Flow Task.Paths[Derived Column Output]"
           TopLeft="707,280">
@@ -1262,6 +1228,40 @@
                     Point3="-64.5,32.5" />
                   <mssgle:LineSegment
                     End="-64.5,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Row Count Output 1]"
+          TopLeft="657,196">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="50,42"
+              Start="0,0"
+              End="50,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17"
+                    Point2="0,21"
+                    Point3="4,21" />
+                  <mssgle:LineSegment
+                    End="46,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="46,21"
+                    Point2="50,21"
+                    Point3="50,25" />
+                  <mssgle:LineSegment
+                    End="50,34.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

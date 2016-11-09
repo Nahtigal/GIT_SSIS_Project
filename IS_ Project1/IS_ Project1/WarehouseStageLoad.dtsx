@@ -1,39 +1,26 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="10/26/2016 7:15:07 PM"
+  DTS:CreationDate="11/7/2016 2:02:55 PM"
   DTS:CreationName="SSIS.Package.3"
   DTS:CreatorComputerName="WIN-179"
   DTS:CreatorName="WIN-179\Lv-179DB"
-  DTS:DTSID="{5C0D3835-EEAA-426C-8588-F2AB29B28F79}"
+  DTS:DTSID="{47D7D72B-7AA5-4CC8-9212-A5CDA608AB13}"
   DTS:ExecutableType="SSIS.Package.3"
   DTS:LastModifiedProductVersion="11.0.6020.0"
   DTS:LocaleID="1058"
-  DTS:ObjectName="TypeOfGoodsLoad"
+  DTS:ObjectName="WarehouseStageLoad"
   DTS:PackageType="5"
-  DTS:VersionBuild="77"
-  DTS:VersionGUID="{D5902818-F418-401B-A079-329C87B0397C}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{DCF039D2-AAD0-4708-A89A-EC172FB9C539}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Log_txx]"
-      DTS:CreationName="FILE"
-      DTS:DTSID="{EE613AA8-2AA1-48A6-9465-8BE4E4BEB2E6}"
-      DTS:ObjectName="Log_txx">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[User::LogFile]</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:FileUsageType="1"
-          DTS:ConnectionString="C:\DataExtract\TypeOfGoodsLoad.log" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[TypesOfGoodsLoad]"
+      DTS:refId="Package.ConnectionManagers[WarehouseLoad]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{4368DCC8-3A9B-47B7-A496-DE8E89407AFA}"
-      DTS:ObjectName="TypesOfGoodsLoad">
+      DTS:DTSID="{2AE8B50C-7CF6-44B2-B20F-AC42A6A09D33}"
+      DTS:ObjectName="WarehouseLoad">
       <DTS:PropertyExpression
         DTS:Name="ConnectionString">@[User::PendingDirName]+"\\"+ @[User::FileName]</DTS:PropertyExpression>
       <DTS:ObjectData>
@@ -44,67 +31,51 @@
           DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="C:\DataExtract\Pending\TypesOfGoods_2016-10-27.txt">
+          DTS:CodePage="1251"
+          DTS:ConnectionString="C:\DataExtract\Pending\WareHouse_2016-11-07.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="16"
+              DTS:DataType="3"
               DTS:TextQualified="True"
-              DTS:ObjectName="TypeId"
-              DTS:DTSID="{7FD30AD5-E45C-4EA8-83FA-BCA0B42C2D6A}"
+              DTS:ObjectName="GoodsId"
+              DTS:DTSID="{D0344DA3-218B-4C99-AE7C-76585385F144}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SizeId"
+              DTS:DTSID="{A1B5BB9C-3319-4994-9C30-A5D6D3B50FAB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:MaximumWidth="14"
-              DTS:DataType="129"
+              DTS:DataType="3"
               DTS:TextQualified="True"
-              DTS:ObjectName="Type"
-              DTS:DTSID="{F49BFC29-8C2B-4C41-9AD1-58510EB5368B}"
+              DTS:ObjectName="QtyOnWarehouse"
+              DTS:DTSID="{E0C04993-AAFC-4213-B724-75F8A6CB419E}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:LogProviders>
-    <DTS:LogProvider
-      DTS:ConfigString="Log_txx"
-      DTS:CreationName="DTS.LogProviderTextFile.3"
-      DTS:Description="Writes log entries for events to a CSV file"
-      DTS:DTSID="{AD74550A-9A0D-42B3-8858-958A870E491B}"
-      DTS:ObjectName="SSIS log provider for Text files">
-      <DTS:ObjectData>
-        <InnerObject />
-      </DTS:ObjectData>
-    </DTS:LogProvider>
-  </DTS:LogProviders>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{01DD7168-73ED-4A2E-8D48-C0FCB4C98704}"
+      DTS:DTSID="{22E2863E-2BBF-4FE7-BA7D-929DBAB7AE6E}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="FileName">
       <DTS:VariableValue
-        DTS:DataType="8">TypesOfGoods_2016-10-27.txt</DTS:VariableValue>
+        DTS:DataType="8">WareHouse_2016-11-07.txt</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1AAD94E6-1F64-42B7-A413-2C095BCBAF1C}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="@[User::PendingDirName]+&quot;\\&quot;+ @[User::FileName]"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="InputFullPath">
-      <DTS:VariableValue
-        DTS:DataType="8">C:\DataExtract\Pending\TypesOfGoods_2016-10-27.txt</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{4F581A08-C702-42CF-BFBB-C7E0FC6CB7FF}"
+      DTS:DTSID="{01775EA3-557C-415A-931A-9F7FEC7C5EA2}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="Key">
@@ -114,18 +85,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C9D8959D-0AE5-4103-BF63-703422F624E0}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="@[User::LorDir]+&quot;\\&quot;+ @[System::PackageName]+&quot;.log&quot;"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="LogFile">
-      <DTS:VariableValue
-        DTS:DataType="8">C:\DataExtract\TypeOfGoodsLoad.log</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{154233B9-7392-4CE5-8AD1-79F070DDED04}"
+      DTS:DTSID="{76B5D206-9BEC-434D-9965-F95398C29ED1}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[User::RowC]==0 ?  &quot;Files is empty.&quot; : &quot;File  were loaded successfully.&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -136,16 +96,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{4D1624CA-D5BF-48E5-BB13-844BA76E2BE6}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="LorDir">
-      <DTS:VariableValue
-        DTS:DataType="8">C:\DataExtract</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{8E0ED70B-976D-4899-AC7B-D4799AA4EA9C}"
+      DTS:DTSID="{F7534CA7-86B9-4E98-8855-1D3EE1555874}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="PendingDirName">
@@ -154,7 +105,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{AED9F3C7-152A-4493-BB41-E0E07B82271C}"
+      DTS:DTSID="{E66C2520-5D22-49FD-8A75-9AC652296DCD}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="ProcessedDirName">
@@ -163,18 +114,18 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{2D9156E7-28EA-42A8-842F-05386AF4A7BD}"
+      DTS:DTSID="{4A762379-10D3-48A0-9BE1-AE9034435273}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="@[User::TypeOfGoodProcDirName] +&quot;\\&quot;+ @[User::FileName]"
+      DTS:Expression="@[User::ProcessedDirName]+&quot;\\&quot;+ @[User::FileName]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="ProcessedFullPath">
       <DTS:VariableValue
-        DTS:DataType="8">C:\DataExtract\Processed\TypeOfGoods_2016-11-09\TypesOfGoods_2016-10-27.txt</DTS:VariableValue>
+        DTS:DataType="8">C:\DataExtract\Processed\WareHouse_2016-11-07.txt</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{4F8D853C-CADF-4D3E-93CC-8C79AF0752D8}"
+      DTS:DTSID="{E6DA4AD3-8C81-4267-93E5-5184DB4FC568}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="RowC">
@@ -183,154 +134,33 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{5D63DC57-8424-4326-9467-B0B9448B5167}"
+      DTS:DTSID="{747E35B1-76A0-45AB-BC30-BE33C2586191}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="@[User::ProcessedDirName] +&quot;\\TypeOfGoods_&quot;+SUBSTRING( (DT_STR, 40, 1254) GETDATE(), 1, 10)"
+      DTS:Expression="@[User::ProcessedDirName] +&quot;\\WareHouse_&quot;+SUBSTRING( (DT_STR, 40, 1254) GETDATE(), 1, 10)"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
-      DTS:ObjectName="TypeOfGoodProcDirName">
+      DTS:ObjectName="WareHouseProcDirName">
       <DTS:VariableValue
-        DTS:DataType="8">C:\DataExtract\Processed\TypeOfGoods_2016-11-09</DTS:VariableValue>
+        DTS:DataType="8">C:\DataExtract\Processed\WareHouse_2016-11-09</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
-  <DTS:LoggingOptions
-    DTS:FilterKind="0"
-    DTS:LoggingMode="1">
-    <DTS:Property
-      DTS:DataType="8"
-      DTS:Name="EventFilter">6,7,OnError,13,OnInformation,13,OnPostExecute,14,OnPostValidate,12,OnPreExecute,9,OnWarning</DTS:Property>
-    <DTS:Property
-      DTS:EventName="OnError"
-      DTS:Name="ColumnFilter">
-      <DTS:Property
-        DTS:Name="Computer">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="Operator">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="SourceName">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="SourceID">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="ExecutionID">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="MessageText">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="DataBytes">-1</DTS:Property>
-    </DTS:Property>
-    <DTS:Property
-      DTS:EventName="OnInformation"
-      DTS:Name="ColumnFilter">
-      <DTS:Property
-        DTS:Name="Computer">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="Operator">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="SourceName">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="SourceID">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="ExecutionID">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="MessageText">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="DataBytes">-1</DTS:Property>
-    </DTS:Property>
-    <DTS:Property
-      DTS:EventName="OnPostExecute"
-      DTS:Name="ColumnFilter">
-      <DTS:Property
-        DTS:Name="Computer">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="Operator">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="SourceName">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="SourceID">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="ExecutionID">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="MessageText">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="DataBytes">-1</DTS:Property>
-    </DTS:Property>
-    <DTS:Property
-      DTS:EventName="OnPostValidate"
-      DTS:Name="ColumnFilter">
-      <DTS:Property
-        DTS:Name="Computer">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="Operator">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="SourceName">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="SourceID">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="ExecutionID">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="MessageText">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="DataBytes">-1</DTS:Property>
-    </DTS:Property>
-    <DTS:Property
-      DTS:EventName="OnPreExecute"
-      DTS:Name="ColumnFilter">
-      <DTS:Property
-        DTS:Name="Computer">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="Operator">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="SourceName">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="SourceID">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="ExecutionID">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="MessageText">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="DataBytes">-1</DTS:Property>
-    </DTS:Property>
-    <DTS:Property
-      DTS:EventName="OnWarning"
-      DTS:Name="ColumnFilter">
-      <DTS:Property
-        DTS:Name="Computer">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="Operator">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="SourceName">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="SourceID">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="ExecutionID">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="MessageText">-1</DTS:Property>
-      <DTS:Property
-        DTS:Name="DataBytes">-1</DTS:Property>
-    </DTS:Property>
-    <DTS:SelectedLogProviders>
-      <DTS:SelectedLogProvider
-        DTS:InstanceID="{AD74550A-9A0D-42B3-8858-958A870E491B}" />
-    </DTS:SelectedLogProviders>
-  </DTS:LoggingOptions>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Arch_Dir_Create"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:Description="File System Task"
-      DTS:DTSID="{C203E541-0B5A-4613-BAA9-BF39A35755B6}"
+      DTS:DTSID="{95EE1FBF-3726-4A19-A9CA-03B414980E51}"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:LocaleID="-1"
       DTS:ObjectName="Arch_Dir_Create"
       DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0" />
       <DTS:ObjectData>
         <FileSystemData
           TaskOperationType="CreateDirectory"
           TaskOverwriteDestFile="True"
-          TaskSourcePath="User::TypeOfGoodProcDirName"
+          TaskSourcePath="User::WareHouseProcDirName"
           TaskIsSourceVariable="True" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -338,15 +168,13 @@
       DTS:refId="Package\EndProtocolInsert"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{2d47d692-5a5d-40eb-9784-4d3600055652}"
+      DTS:DTSID="{40C13A21-7E1F-49E0-B149-89C8E2902EFF}"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:LocaleID="-1"
       DTS:ObjectName="EndProtocolInsert"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{ADDA4174-16F5-4D20-85CB-27BFEE20CDF2}"
@@ -376,13 +204,13 @@
       DTS:refId="Package\Foreach Loop Container"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
-      DTS:DTSID="{7fbc4aa3-478c-409c-82e5-d0d894f8114c}"
+      DTS:DTSID="{3B60E525-5E3A-48AD-9997-7895142BE5EF}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
       DTS:ObjectName="Foreach Loop Container">
       <DTS:ForEachEnumerator
         DTS:CreationName="DTS.ForEachFileEnumerator.3"
-        DTS:DTSID="{2fb77cb9-4244-4f90-8e9c-33b208a3e7d5}"
+        DTS:DTSID="{4EAFE47B-1044-4FB4-ACD6-6CCA40CE1FD7}"
         DTS:ObjectName="{4F636763-CE55-450C-89CA-96AAE68A1150}">
         <DTS:PropertyExpression
           DTS:Name="Directory">@[User::PendingDirName]</DTS:PropertyExpression>
@@ -391,7 +219,7 @@
             <FEFEProperty
               Folder="C:\DataExtract\Pending" />
             <FEFEProperty
-              FileSpec="TypesOfGoods*.*" />
+              FileSpec="WareHouse*.*" />
             <FEFEProperty
               FileNameRetrievalType="1" />
             <FEFEProperty
@@ -399,27 +227,35 @@
           </ForEachFileEnumeratorProperties>
         </DTS:ObjectData>
       </DTS:ForEachEnumerator>
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0" />
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{181BACA2-99D3-472D-8AC9-315E1B4A23ED}"
+          DTS:EvaluateAsExpression="True"
+          DTS:Expression="@[User::PendingDirName]+&quot;\\&quot;+ @[User::FileName]"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="Copy_File_From_Name">
+          <DTS:VariableValue
+            DTS:DataType="8">C:\DataExtract\Pending\WareHouse_2016-11-07.txt</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
       <DTS:Executables>
         <DTS:Executable
           DTS:refId="Package\Foreach Loop Container\Copy to ArchFolder"
           DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
           DTS:Description="File System Task"
-          DTS:DTSID="{5ba67d07-5807-4689-bfa5-23c939b11a60}"
+          DTS:DTSID="{2E12ADEB-C1D5-46E8-9DA5-01623F1167DC}"
           DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
           DTS:LocaleID="-1"
           DTS:ObjectName="Copy to ArchFolder"
           DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="0">
           <DTS:Variables />
-          <DTS:LoggingOptions
-            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <FileSystemData
               TaskOverwriteDestFile="True"
-              TaskSourcePath="User::InputFullPath"
+              TaskSourcePath="User::Copy_File_From_Name"
               TaskIsSourceVariable="True"
               TaskDestinationPath="User::ProcessedFullPath"
               TaskIsDestinationVariable="True" />
@@ -429,18 +265,89 @@
           DTS:refId="Package\Foreach Loop Container\Data Flow Task"
           DTS:CreationName="SSIS.Pipeline.3"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{e0ccda65-99b2-4657-8bec-46ef50d9e9ff}"
+          DTS:DTSID="{D969007A-8436-40FA-B969-0F0962D463E8}"
           DTS:ExecutableType="SSIS.Pipeline.3"
           DTS:LocaleID="-1"
           DTS:ObjectName="Data Flow Task"
           DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
           <DTS:Variables />
-          <DTS:LoggingOptions
-            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <pipeline
               version="1">
               <components>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task\Derived Column"
+                  componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[DateofStock]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[DateofStock]"
+                          name="DateofStock"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
                 <component
                   refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source"
                   componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
@@ -463,8 +370,8 @@
                   <connections>
                     <connection
                       refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Connections[FlatFileConnection]"
-                      connectionManagerID="Package.ConnectionManagers[TypesOfGoodsLoad]"
-                      connectionManagerRefId="Package.ConnectionManagers[TypesOfGoodsLoad]"
+                      connectionManagerID="Package.ConnectionManagers[WarehouseLoad]"
+                      connectionManagerRefId="Package.ConnectionManagers[WarehouseLoad]"
                       name="FlatFileConnection" />
                   </connections>
                   <outputs>
@@ -473,15 +380,13 @@
                       name="Flat File Source Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[TypeId]"
-                          codePage="1251"
-                          dataType="str"
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[GoodsId]"
+                          dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TypeId]"
-                          length="50"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[TypeId]"
-                          name="TypeId"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GoodsId]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[GoodsId]"
+                          name="GoodsId"
                           truncationRowDisposition="FailComponent">
                           <properties>
                             <property
@@ -495,15 +400,33 @@
                           </properties>
                         </outputColumn>
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Type]"
-                          codePage="1252"
-                          dataType="str"
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[SizeId]"
+                          dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Type]"
-                          length="50"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Type]"
-                          name="Type"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SizeId]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[SizeId]"
+                          name="SizeId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[QtyOnWarehouse]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[QtyOnWarehouse]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[QtyOnWarehouse]"
+                          name="QtyOnWarehouse"
                           truncationRowDisposition="FailComponent">
                           <properties>
                             <property
@@ -520,15 +443,17 @@
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TypeId]"
-                          dataType="i1"
-                          name="TypeId" />
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GoodsId]"
+                          dataType="i4"
+                          name="GoodsId" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Type]"
-                          codePage="1252"
-                          dataType="str"
-                          length="14"
-                          name="Type" />
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SizeId]"
+                          dataType="i4"
+                          name="SizeId" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[QtyOnWarehouse]"
+                          dataType="i4"
+                          name="QtyOnWarehouse" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -576,7 +501,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[TypesOfGoods]</property>
+                      name="OpenRowset">[dbo].[Warehouse]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -633,34 +558,48 @@
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TypeId]"
-                          cachedCodepage="1251"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="TypeId"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TypeId]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[TypeId]" />
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GoodsId]"
+                          cachedDataType="i4"
+                          cachedName="GoodsId"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GoodsId]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[GoodsId]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Type]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="Type"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Type]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Type]" />
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SizeId]"
+                          cachedDataType="i4"
+                          cachedName="SizeId"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SizeId]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[SizeId]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[QtyOnWarehouse]"
+                          cachedDataType="i4"
+                          cachedName="QtyOnWarehouse"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[QtyOnWarehouse]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[QtyOnWarehouse]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateofStock]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DateofStock"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateOfStock]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[DateofStock]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TypeId]"
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GoodsId]"
                           dataType="i4"
-                          name="TypeId" />
+                          name="GoodsId" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Type]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name="Type" />
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SizeId]"
+                          dataType="i4"
+                          name="SizeId" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[QtyOnWarehouse]"
+                          dataType="i4"
+                          name="QtyOnWarehouse" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateOfStock]"
+                          dataType="dbDate"
+                          name="DateOfStock" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -721,13 +660,18 @@
               </components>
               <paths>
                 <path
+                  refId="Package\Foreach Loop Container\Data Flow Task.Paths[Derived Column Output]"
+                  endId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Output]" />
+                <path
                   refId="Package\Foreach Loop Container\Data Flow Task.Paths[Flat File Source Output]"
                   endId="Package\Foreach Loop Container\Data Flow Task\Row Count.Inputs[Row Count Input 1]"
                   name="Flat File Source Output"
                   startId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]" />
                 <path
                   refId="Package\Foreach Loop Container\Data Flow Task.Paths[Row Count Output 1]"
-                  endId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  endId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
                   name="Row Count Output 1"
                   startId="Package\Foreach Loop Container\Data Flow Task\Row Count.Outputs[Row Count Output 1]" />
               </paths>
@@ -738,19 +682,17 @@
           DTS:refId="Package\Foreach Loop Container\Delete file"
           DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
           DTS:Description="File System Task"
-          DTS:DTSID="{128e501f-00f8-41c9-8406-030c9f5b41bf}"
+          DTS:DTSID="{32ACA79C-AD18-48BB-B1AC-CB4D71FB81FD}"
           DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete file"
           DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="0">
           <DTS:Variables />
-          <DTS:LoggingOptions
-            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <FileSystemData
               TaskOperationType="DeleteFile"
-              TaskSourcePath="User::InputFullPath"
+              TaskSourcePath="User::Copy_File_From_Name"
               TaskIsSourceVariable="True" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -758,15 +700,13 @@
           DTS:refId="Package\Foreach Loop Container\InsertPkgAudit"
           DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{4A39B5A7-48EB-4804-AB43-5E0C7B5FCE5B}"
+          DTS:DTSID="{976E4700-F3EE-493A-9062-ED14A7160608}"
           DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
           DTS:LocaleID="-1"
           DTS:ObjectName="InsertPkgAudit"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="0">
           <DTS:Variables />
-          <DTS:LoggingOptions
-            DTS:FilterKind="0" />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{ADDA4174-16F5-4D20-85CB-27BFEE20CDF2}"
@@ -797,7 +737,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{9e1687aa-3be6-4df5-8fbc-70f9877e8cde}"
+          DTS:DTSID="{43C38D93-8F1B-45C4-868F-A4D381FC6460}"
           DTS:From="Package\Foreach Loop Container\Data Flow Task"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -805,7 +745,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
-          DTS:DTSID="{1271CEB7-1379-478E-AF5D-E0313C046212}"
+          DTS:DTSID="{C8A558B2-EB8B-4C17-A7B2-6865EDCE01C5}"
           DTS:From="Package\Foreach Loop Container\Delete file"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
@@ -813,7 +753,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
-          DTS:DTSID="{297e881e-ec08-489a-95cf-91bd53dbb018}"
+          DTS:DTSID="{92094C3F-F2B4-4AF2-8DD6-5448C7E88DFD}"
           DTS:From="Package\Foreach Loop Container\Copy to ArchFolder"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
@@ -822,8 +762,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{e6880a39-1947-4e08-981e-cf06c68b3755}"
-          DTS:ObjectName="{BA2850CF-F7BF-4C37-BBBC-A120A937EB73}"
+          DTS:DTSID="{EEDAEAFA-D5DD-4F1C-927A-778E96F49C2F}"
+          DTS:ObjectName="{EEDAEAFA-D5DD-4F1C-927A-778E96F49C2F}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::FileName" />
       </DTS:ForEachVariableMappings>
@@ -832,15 +772,13 @@
       DTS:refId="Package\Start_protocol_insert"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{3AAFB1AF-6C7A-44AB-B882-0C4995AF14DC}"
+      DTS:DTSID="{CF4135F0-B96B-4F09-9804-9C348B49291A}"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:LocaleID="-1"
       DTS:ObjectName="Start_protocol_insert"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{ADDA4174-16F5-4D20-85CB-27BFEE20CDF2}"
@@ -860,28 +798,53 @@
         </SQLTask:SqlTaskData>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate table"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{590CA829-6CEC-42BD-8A4A-54DD356FEDF3}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{ADDA4174-16F5-4D20-85CB-27BFEE20CDF2}"
+          SQLTask:SqlStatementSource="truncate table [Lv-200.DB_Staging].[dbo].[Warehouse]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{6FBF6766-F146-4890-B0A0-21D280306811}"
-      DTS:From="Package\Start_protocol_insert"
+      DTS:DTSID="{CF26AC95-6D97-4ED7-A05A-2AA4DB8E3408}"
+      DTS:From="Package\Truncate table"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\Arch_Dir_Create" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{6A3D095E-B573-405E-8A1C-5F80B5055C8C}"
+      DTS:DTSID="{3AAC8E2B-7ECB-4DF0-B1D0-4D042DF0AF8D}"
       DTS:From="Package\Arch_Dir_Create"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\Foreach Loop Container" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{53628BFB-9290-441E-B03F-0CD4CC208CF2}"
+      DTS:From="Package\Start_protocol_insert"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Truncate table" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{40F9497E-1234-4548-B441-44E80E3B99B4}"
+      DTS:DTSID="{ECEED5A4-0858-44B3-9EAD-15263951A97A}"
       DTS:From="Package\Foreach Loop Container"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
@@ -898,37 +861,75 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
         <NodeLayout
           Size="165,42"
           Id="Package\EndProtocolInsert"
-          TopLeft="727.142857142857,16287.1428571429" />
+          TopLeft="145.069985569987,797.142857142901" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Start_protocol_insert"
+          TopLeft="206.498556998559,60" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="698,16209">
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="295.998556998559,102">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="111.642857142857,78.1428571429005"
+              EndConnector="-84.5714285714286,110.999999999998"
               Start="0,0"
-              End="111.642857142857,70.6428571429005">
+              End="-84.5714285714286,103.499999999998">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.0714285714503" />
+                    End="0,51.4999999999991" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,35.0714285714503"
-                    Point2="0,39.0714285714503"
-                    Point3="4,39.0714285714503" />
+                    Point1="0,51.4999999999991"
+                    Point2="0,55.4999999999991"
+                    Point3="-4,55.4999999999991" />
                   <mssgle:LineSegment
-                    End="107.642857142857,39.0714285714503" />
+                    End="-80.5714285714286,55.4999999999991" />
                   <mssgle:CubicBezierSegment
-                    Point1="107.642857142857,39.0714285714503"
-                    Point2="111.642857142857,39.0714285714503"
-                    Point3="111.642857142857,43.0714285714503" />
+                    Point1="-80.5714285714286,55.4999999999991"
+                    Point2="-84.5714285714286,55.4999999999991"
+                    Point3="-84.5714285714286,59.4999999999991" />
                   <mssgle:LineSegment
-                    End="111.642857142857,70.6428571429005" />
+                    End="-84.5714285714286,103.499999999998" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="241.92712842713,734">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.357142857143,63.1428571428569"
+              Start="0,0"
+              End="-14.357142857143,55.6428571428569">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5714285714284" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.5714285714284"
+                    Point2="0,31.5714285714284"
+                    Point3="-4,31.5714285714284" />
+                  <mssgle:LineSegment
+                    End="-10.357142857143,31.5714285714284" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.357142857143,31.5714285714284"
+                    Point2="-14.357142857143,31.5714285714284"
+                    Point3="-14.357142857143,35.5714285714284" />
+                  <mssgle:LineSegment
+                    End="-14.357142857143,55.6428571428569" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1054,6 +1055,44 @@
           Size="320,387"
           Id="Package\Foreach Loop Container"
           TopLeft="22.1666666666666,147.479797979795" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Truncate table"
+          TopLeft="76.6363636363636,12.7272727272721" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="151.136363636364,54.7272727272721">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.7727272727272,26.5454545454551"
+              Start="0,0"
+              End="13.7727272727272,19.0454545454551">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.27272727272755" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.27272727272755"
+                    Point2="0,13.2727272727275"
+                    Point3="4,13.2727272727275" />
+                  <mssgle:LineSegment
+                    End="9.77272727272722,13.2727272727275" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.77272727272722,13.2727272727275"
+                    Point2="13.7727272727272,13.2727272727275"
+                    Point3="13.7727272727272,17.2727272727275" />
+                  <mssgle:LineSegment
+                    End="13.7727272727272,19.0454545454551" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="164.909090909091,123.272727272727">
@@ -1088,47 +1127,21 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="179,42"
-          Id="Package\Start_protocol_insert"
-          TopLeft="71.571428571429,6" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="162.99025974026,48">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,33.2727272727272"
-              Start="0,0"
-              End="0,25.7727272727272">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.7727272727272" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <GroupLayout
-          Text="Type_Of_Goods_Load"
+          Text="Group "
           ParentId="Package"
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="347,589"
           Size="347,632"
-          Id="d6f5385a-2e76-4699-8e1e-540e911afea7"
-          TopLeft="516.07287157287,15632.2460317461">
+          Id="0d219a06-35f3-4b62-904a-528512ed774d"
+          TopLeft="60,157.246031746099">
           <GroupLayout.ChildrenIds>
             <s:String>Package\Arch_Dir_Create</s:String>
             <s:String>Package\Foreach Loop Container</s:String>
-            <s:String>Package.PrecedenceConstraints[Constraint 1]</s:String>
-            <s:String>Package\Start_protocol_insert</s:String>
+            <s:String>Package\Truncate table</s:String>
             <s:String>Package.PrecedenceConstraints[Constraint]</s:String>
+            <s:String>Package.PrecedenceConstraints[Constraint 1]</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>
       </GraphLayout>
@@ -1140,31 +1153,47 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="173,42"
-          Id="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination"
-          TopLeft="598,186" />
-        <NodeLayout
           Size="153,42"
           Id="Package\Foreach Loop Container\Data Flow Task\Flat File Source"
-          TopLeft="603,18" />
+          TopLeft="602,51" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Foreach Loop Container\Data Flow Task\Derived Column"
+          TopLeft="629,238" />
         <NodeLayout
           Size="132,42"
           Id="Package\Foreach Loop Container\Data Flow Task\Row Count"
-          TopLeft="619,102" />
+          TopLeft="591,154" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination"
+          TopLeft="556,337" />
         <EdgeLayout
-          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Row Count Output 1]"
-          TopLeft="684.75,144">
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Flat File Source Output]"
+          TopLeft="678.5,93">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,42"
+              EndConnector="-21.5,61"
               Start="0,0"
-              End="0,34.5">
+              End="-21.5,53.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.5" />
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="-4,30.5" />
+                  <mssgle:LineSegment
+                    End="-17.5,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17.5,30.5"
+                    Point2="-21.5,30.5"
+                    Point3="-21.5,34.5" />
+                  <mssgle:LineSegment
+                    End="-21.5,53.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1174,19 +1203,65 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Flat File Source Output]"
-          TopLeft="682.25,60">
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="707,280">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,42"
+              EndConnector="-64.5,57"
               Start="0,0"
-              End="0,34.5">
+              End="-64.5,49.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.5" />
+                    End="0,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5"
+                    Point2="0,28.5"
+                    Point3="-4,28.5" />
+                  <mssgle:LineSegment
+                    End="-60.5,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-60.5,28.5"
+                    Point2="-64.5,28.5"
+                    Point3="-64.5,32.5" />
+                  <mssgle:LineSegment
+                    End="-64.5,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Row Count Output 1]"
+          TopLeft="657,196">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="50,42"
+              Start="0,0"
+              End="50,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17"
+                    Point2="0,21"
+                    Point3="4,21" />
+                  <mssgle:LineSegment
+                    End="46,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="46,21"
+                    Point2="50,21"
+                    Point3="50,25" />
+                  <mssgle:LineSegment
+                    End="50,34.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1198,5 +1273,18 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
