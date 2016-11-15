@@ -1,18 +1,18 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="11/14/2016 2:23:34 PM"
   DTS:CreationName="SSIS.Package.3"
   DTS:CreatorComputerName="WIN-179"
   DTS:CreatorName="WIN-179\Lv-179DB"
-  DTS:DTSID="{0A1E44B0-8624-4FAB-BE1D-7767A39E4F24}"
+  DTS:DTSID="{29A8A504-8255-4027-9A9E-AC454DCB7AC9}"
   DTS:ExecutableType="SSIS.Package.3"
   DTS:LastModifiedProductVersion="11.0.6020.0"
   DTS:LocaleID="1058"
-  DTS:ObjectName="Package1"
+  DTS:ObjectName="WarehouseSizeDimentionMerge"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{5364F8B1-3AEC-4713-BF3A-477D7321F3F4}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{FB5B93DE-B8FE-4F4E-A6E8-A2B268CF94E8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:Variables />

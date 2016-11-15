@@ -1,37 +1,37 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="11/14/2016 2:23:34 PM"
+  DTS:CreationDate="11/14/2016 2:34:39 PM"
   DTS:CreationName="SSIS.Package.3"
   DTS:CreatorComputerName="WIN-179"
   DTS:CreatorName="WIN-179\Lv-179DB"
-  DTS:DTSID="{0A1E44B0-8624-4FAB-BE1D-7767A39E4F24}"
+  DTS:DTSID="{DE5C9381-2E87-4471-ABB1-A38C156EA976}"
   DTS:ExecutableType="SSIS.Package.3"
   DTS:LastModifiedProductVersion="11.0.6020.0"
   DTS:LocaleID="1058"
-  DTS:ObjectName="Package1"
+  DTS:ObjectName="WarehouseGoodsDimentionFULLRELOAD"
   DTS:PackageType="5"
   DTS:VersionBuild="1"
-  DTS:VersionGUID="{5364F8B1-3AEC-4713-BF3A-477D7321F3F4}">
+  DTS:VersionGUID="{D1F46715-68CB-46BE-BC04-F6089CC7E35F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\WarehouseSizeDimentionMEGRE"
+      DTS:refId="Package\Warehouse_GoodsDimentionFULLRELOAD"
       DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{FD7BE572-0730-4157-8465-EE4D02A19025}"
+      DTS:DTSID="{3383AA73-5B70-47EA-A267-DE5A02AD7C26}"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
       DTS:LocaleID="-1"
-      DTS:ObjectName="WarehouseSizeDimentionMEGRE"
+      DTS:ObjectName="Warehouse_GoodsDimentionFULLRELOAD"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{ADDA4174-16F5-4D20-85CB-27BFEE20CDF2}"
-          SQLTask:SqlStatementSource="EXEC [dbo].[Warehouse_PrSizeDimentionMEGRE]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="exec [dbo].[Warehouse_GoodsDimentionFULLRELOAD]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -48,9 +48,9 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="234,42"
-          Id="Package\WarehouseSizeDimentionMEGRE"
-          TopLeft="382,155" />
+          Size="279,42"
+          Id="Package\Warehouse_GoodsDimentionFULLRELOAD"
+          TopLeft="506,207" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
