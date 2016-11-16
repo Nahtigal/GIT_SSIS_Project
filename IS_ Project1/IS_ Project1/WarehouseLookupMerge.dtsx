@@ -11,8 +11,8 @@
   DTS:LocaleID="1058"
   DTS:ObjectName="WarehouseLookupMerge"
   DTS:PackageType="5"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{2418E88D-90F8-4E2A-B33F-E4CB8BD28138}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{B186155A-C113-4D91-996D-F70ADFD489C6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJX0D7MhU20SQOHfZrzNBAQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAuFGux/fCs629LT9D6fUMJc70NF7RaE10Ix0B75pGM8QAAAAAOgAAAAAIAACAAAADh4CWm8zcMscNqKS57fCd74Y9moYCYgoFx2KjZaGn/YiAAAADX1/cLWmExrD4TnqPg/xPI2ZZPOc9+cs9oGo27N+Am70AAAAB1j+rv961WyKFRQT6narhuqjMb8yTssNM9HasmaYvCt01bp/Vno1KT0XsWYcgzOMd/XCDv/Pc920KEQfUn/fAd</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJX0D7MhU20SQOHfZrzNBAQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACIaFFFvPg2Gq1Ba22SeNaOnYC8tPXtSH3eGQaPuaCSvgAAAAAOgAAAAAIAACAAAAC+NZY+B+G+Tbc2xlwJGNEtmuVcpZs3V9iP3zzxVG2a7yAAAABHkqsWggvSwxIxRty7zKtVEZKeMBwwEx+32U66NJmqf0AAAABtSbyHYYt8kU9yqJOoj3s0gLpqsifba2DzSns+LoEQMHa24f9RCUL0aP5q5/8Y+61ed+KLvQ4AKe8j0iPz3LH8</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -433,12 +433,6 @@ WHERE [GoodsId]=? AND [Sizeid]=? and [DateOfStock]=?</property>
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\LookUpTask\OLE DB Command.Inputs[OLE DB Command Input].Columns[QtyOnWarehouse]"
-                      cachedDataType="i4"
-                      cachedName="QtyOnWarehouse"
-                      externalMetadataColumnId="Package\LookUpTask\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\LookUpTask\WareHouseStage.Outputs[OLE DB Source Output].Columns[QtyOnWarehouse]" />
-                    <inputColumn
                       refId="Package\LookUpTask\OLE DB Command.Inputs[OLE DB Command Input].Columns[GoodsId]"
                       cachedDataType="i4"
                       cachedName="GoodsId"
@@ -456,6 +450,12 @@ WHERE [GoodsId]=? AND [Sizeid]=? and [DateOfStock]=?</property>
                       cachedName="DateOfStock"
                       externalMetadataColumnId="Package\LookUpTask\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       lineageId="Package\LookUpTask\WareHouseStage.Outputs[OLE DB Source Output].Columns[DateOfStock]" />
+                    <inputColumn
+                      refId="Package\LookUpTask\OLE DB Command.Inputs[OLE DB Command Input].Columns[QtyOnWarehouse]"
+                      cachedDataType="i4"
+                      cachedName="QtyOnWarehouse"
+                      externalMetadataColumnId="Package\LookUpTask\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\LookUpTask\WareHouseStage.Outputs[OLE DB Source Output].Columns[QtyOnWarehouse]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -761,8 +761,8 @@ WHERE [GoodsId]=? AND [Sizeid]=? and [DateOfStock]=?</property>
               <connections>
                 <connection
                   refId="Package\LookUpTask\WareHouseStage.Connections[OleDbConnection]"
-                  connectionManagerID="{ADDA4174-16F5-4D20-85CB-27BFEE20CDF2}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[ssu-sql12_tc.Lv-200.DB_Staging.Lv-200.DB]"
+                  connectionManagerID="{ADDA4174-16F5-4D20-85CB-27BFEE20CDF2}:invalid"
+                  connectionManagerRefId="{ADDA4174-16F5-4D20-85CB-27BFEE20CDF2}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1270,7 +1270,7 @@ WHERE [GoodsId]=? AND [Sizeid]=? and [DateOfStock]=?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="8.90829427083335,20.9210977701544,129.350078125,16"
+              BoundingBox="8.90829427083351,20.9210977701544,129.350078125,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

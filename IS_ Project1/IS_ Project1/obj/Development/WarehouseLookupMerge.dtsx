@@ -11,8 +11,8 @@
   DTS:LocaleID="1058"
   DTS:ObjectName="WarehouseLookupMerge"
   DTS:PackageType="5"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{F5D16E82-6E0A-421F-9F3C-927053EF5877}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{B186155A-C113-4D91-996D-F70ADFD489C6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJX0D7MhU20SQOHfZrzNBAQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACdx0c500pFnGb6Ano9HyQLVY+SWRLZoGFidopSzViWgQAAAAAOgAAAAAIAACAAAADTBa3Oq9hj4RjNCQieaAObDE09jOsBw8l9eSd0H+rcpyAAAACe5BgC9aYvtJzdMy/sMUHFgIi8vLdyFl5cp5RMc3pu0kAAAAD6gFLzZpSw3YAx4BDXWRH/xr01D3rYBJFShDoDubYKkVB0pKKuXdkBKkoidcQyO+L0tlA3mI1HR8y1x57Daevu</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJX0D7MhU20SQOHfZrzNBAQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAJ0kS21auoF+myKe3CMFywGXl/fQeVke69iauZWDjRsQAAAAAOgAAAAAIAACAAAACL4tfo7FGYSOw0ENOojOZxv12awv7wzUOz5KTyIT8dFiAAAABT24v4GNj4XmAQxuX3IkMYqSl5WTPxU4iJA80/eHbXA0AAAABm1bbI2Q1iMs9D2FFDZjLj0ES64nFkzhdiraBY7mMjserlQUBrA6Pd82INr+YifEdSzCnoeVrpeC/BzUW1vFU/</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -433,12 +433,6 @@ WHERE [GoodsId]=? AND [Sizeid]=? and [DateOfStock]=?</property>
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\LookUpTask\OLE DB Command.Inputs[OLE DB Command Input].Columns[QtyOnWarehouse]"
-                      cachedDataType="i4"
-                      cachedName="QtyOnWarehouse"
-                      externalMetadataColumnId="Package\LookUpTask\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\LookUpTask\WareHouseStage.Outputs[OLE DB Source Output].Columns[QtyOnWarehouse]" />
-                    <inputColumn
                       refId="Package\LookUpTask\OLE DB Command.Inputs[OLE DB Command Input].Columns[GoodsId]"
                       cachedDataType="i4"
                       cachedName="GoodsId"
@@ -456,6 +450,12 @@ WHERE [GoodsId]=? AND [Sizeid]=? and [DateOfStock]=?</property>
                       cachedName="DateOfStock"
                       externalMetadataColumnId="Package\LookUpTask\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       lineageId="Package\LookUpTask\WareHouseStage.Outputs[OLE DB Source Output].Columns[DateOfStock]" />
+                    <inputColumn
+                      refId="Package\LookUpTask\OLE DB Command.Inputs[OLE DB Command Input].Columns[QtyOnWarehouse]"
+                      cachedDataType="i4"
+                      cachedName="QtyOnWarehouse"
+                      externalMetadataColumnId="Package\LookUpTask\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\LookUpTask\WareHouseStage.Outputs[OLE DB Source Output].Columns[QtyOnWarehouse]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -761,8 +761,8 @@ WHERE [GoodsId]=? AND [Sizeid]=? and [DateOfStock]=?</property>
               <connections>
                 <connection
                   refId="Package\LookUpTask\WareHouseStage.Connections[OleDbConnection]"
-                  connectionManagerID="{ADDA4174-16F5-4D20-85CB-27BFEE20CDF2}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[ssu-sql12_tc.Lv-200.DB_Staging.Lv-200.DB]"
+                  connectionManagerID="{ADDA4174-16F5-4D20-85CB-27BFEE20CDF2}:invalid"
+                  connectionManagerRefId="{ADDA4174-16F5-4D20-85CB-27BFEE20CDF2}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1047,6 +1047,14 @@ WHERE [GoodsId]=? AND [Sizeid]=? and [DateOfStock]=?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="165,42"
+          Id="Package\EndProtocolInsert"
+          TopLeft="335,329" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\InsertPkgAudit"
+          TopLeft="343,208" />
+        <NodeLayout
           Size="138,42"
           Id="Package\LookUpTask"
           TopLeft="344,128" />
@@ -1076,14 +1084,6 @@ WHERE [GoodsId]=? AND [Sizeid]=? and [DateOfStock]=?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="165,42"
-          Id="Package\EndProtocolInsert"
-          TopLeft="335,329" />
-        <NodeLayout
-          Size="150,42"
-          Id="Package\InsertPkgAudit"
-          TopLeft="343,208" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="415.5,170">
@@ -1131,41 +1131,61 @@ WHERE [GoodsId]=? AND [Sizeid]=? and [DateOfStock]=?</property>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="180,42"
+          Id="Package.EventHandlers[OnError]\Error_protocol_insert"
+          TopLeft="547,95" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
   <TaskHost
     design-time-name="Package\LookUpTask">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="162,42"
+          Id="Package\LookUpTask\WareHouseStage"
+          TopLeft="382,4" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\LookUpTask\Update rows"
+          TopLeft="236,176" />
+        <NodeLayout
           Size="173,42"
           Id="Package\LookUpTask\OLE DB Destination"
-          TopLeft="613,263" />
-        <NodeLayout
-          Size="168,42"
-          Id="Package\LookUpTask\OLE DB Command"
-          TopLeft="181,263" />
+          TopLeft="537,247" />
         <NodeLayout
           Size="115,42"
           Id="Package\LookUpTask\Lookup"
           TopLeft="407,83" />
         <NodeLayout
-          Size="162,42"
-          Id="Package\LookUpTask\WareHouseStage"
-          TopLeft="382,5" />
+          Size="131,42"
+          Id="Package\LookUpTask\Inser rows"
+          TopLeft="564,164" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\LookUpTask\OLE DB Command"
+          TopLeft="227,258" />
         <EdgeLayout
-          Id="Package\LookUpTask.Paths[OLE DB Source Output]"
-          TopLeft="463.75,47">
+          Id="Package\LookUpTask.Paths[Row Count Output 11]"
+          TopLeft="626.5,206">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,36"
+              EndConnector="0,41"
               Start="0,0"
-              End="0,28.5">
+              End="0,33.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.5" />
+                    End="0,33.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1174,19 +1194,95 @@ WHERE [GoodsId]=? AND [Sizeid]=? and [DateOfStock]=?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="140,42"
-          Id="Package\LookUpTask\Update rows"
-          TopLeft="191,176" />
+        <EdgeLayout
+          Id="Package\LookUpTask.Paths[Row Count Output 1]"
+          TopLeft="308.5,218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LookUpTask.Paths[OLE DB Source Output]"
+          TopLeft="463.75,46">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LookUpTask.Paths[Lookup No Match Output]"
+          TopLeft="482.333333333333,125">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="147.166666666667,39"
+              Start="0,0"
+              End="147.166666666667,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.9210977701544" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.9210977701544"
+                    Point2="0,15.9210977701544"
+                    Point3="4,15.9210977701544" />
+                  <mssgle:LineSegment
+                    End="143.166666666667,15.9210977701544" />
+                  <mssgle:CubicBezierSegment
+                    Point1="143.166666666667,15.9210977701544"
+                    Point2="147.166666666667,15.9210977701544"
+                    Point3="147.166666666667,19.9210977701544" />
+                  <mssgle:LineSegment
+                    End="147.166666666667,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="8.90829427083351,20.9210977701544,129.350078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\LookUpTask.Paths[Lookup Match Output]"
           TopLeft="446.666666666667,125">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-185.666666666667,51"
+              EndConnector="-140.666666666667,51"
               Start="0,0"
-              End="-185.666666666667,43.5">
+              End="-140.666666666667,43.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1197,110 +1293,39 @@ WHERE [GoodsId]=? AND [Sizeid]=? and [DateOfStock]=?</property>
                     Point2="0,20.819897084048"
                     Point3="-4,20.819897084048" />
                   <mssgle:LineSegment
-                    End="-181.666666666667,20.819897084048" />
+                    End="-136.666666666667,20.819897084048" />
                   <mssgle:CubicBezierSegment
-                    Point1="-181.666666666667,20.819897084048"
-                    Point2="-185.666666666667,20.819897084048"
-                    Point3="-185.666666666667,24.819897084048" />
+                    Point1="-136.666666666667,20.819897084048"
+                    Point2="-140.666666666667,20.819897084048"
+                    Point3="-140.666666666667,24.819897084048" />
                   <mssgle:LineSegment
-                    End="-185.666666666667,43.5" />
+                    End="-140.666666666667,43.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-141.024720052083,25.819897084048,96.3827734375,11.609375"
+              BoundingBox="-127.393372395833,25.819897084048,114.120078125,16"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LookUpTask.Paths[Row Count Output 1]"
-          TopLeft="263,218">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,45"
-              Start="0,0"
-              End="0,37.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="131,42"
-          Id="Package\LookUpTask\Inser rows"
-          TopLeft="629,197" />
-        <EdgeLayout
-          Id="Package\LookUpTask.Paths[Lookup No Match Output]"
-          TopLeft="482.333333333333,125">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="212.166666666667,72"
-              Start="0,0"
-              End="212.166666666667,64.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.3927958833619" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.3927958833619"
-                    Point2="0,29.3927958833619"
-                    Point3="4,29.3927958833619" />
-                  <mssgle:LineSegment
-                    End="208.166666666667,29.3927958833619" />
-                  <mssgle:CubicBezierSegment
-                    Point1="208.166666666667,29.3927958833619"
-                    Point2="212.166666666667,29.3927958833619"
-                    Point3="212.166666666667,33.3927958833619" />
-                  <mssgle:LineSegment
-                    End="212.166666666667,64.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="50.2769466145833,34.3927958833619,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LookUpTask.Paths[Row Count Output 11]"
-          TopLeft="697,239">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,24"
-              Start="0,0"
-              End="0,16.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LookUpTask\WareHouseStage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\LookUpTask\OLE DB Destination">
     <Properties>
@@ -1320,7 +1345,7 @@ WHERE [GoodsId]=? AND [Sizeid]=? and [DateOfStock]=?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1330,37 +1355,12 @@ WHERE [GoodsId]=? AND [Sizeid]=? and [DateOfStock]=?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LookUpTask\WareHouseStage">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <DtsEventHandler
-    design-time-name="Package.EventHandlers[OnError]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="180,42"
-          Id="Package.EventHandlers[OnError]\Error_protocol_insert"
-          TopLeft="547,95" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

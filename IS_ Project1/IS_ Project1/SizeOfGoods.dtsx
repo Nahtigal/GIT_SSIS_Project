@@ -11,8 +11,8 @@
   DTS:LocaleID="1058"
   DTS:ObjectName="SizeOfGoods"
   DTS:PackageType="5"
-  DTS:VersionBuild="34"
-  DTS:VersionGUID="{ACF22DA6-2AA4-4832-97C3-9F1C4315725E}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{F1394257-FAD3-4880-972B-1353BD2FC292}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -143,7 +143,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="ProcessedFullPath">
       <DTS:VariableValue
-        DTS:DataType="8">C:\DataExtract\Processed\2016-11-14\SizeOfGoods*.txt</DTS:VariableValue>
+        DTS:DataType="8">C:\DataExtract\Processed\2016-11-16\SizeOfGoods*.txt</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -163,7 +163,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="SizeOfGoodsProcDirName">
       <DTS:VariableValue
-        DTS:DataType="8">C:\DataExtract\Processed\2016-11-14</DTS:VariableValue>
+        DTS:DataType="8">C:\DataExtract\Processed\2016-11-16</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -298,14 +298,35 @@
           ReadOnlyVariables="User::FileName,User::PendingDirName"
           ReadWriteVariables="User::boolFileExists">
           <ProjectItem
-            Name="Properties\Settings.settings"
-            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_34828cd7de8e4f439feaee7763fda783")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("Microsoft")]
+[assembly: AssemblyProduct("ST_34828cd7de8e4f439feaee7763fda783")]
+[assembly: AssemblyCopyright("Copyright @ Microsoft 2016")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.resx"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -615,35 +636,14 @@ namespace ST_34828cd7de8e4f439feaee7763fda783.Properties {
     }
 }]]></ProjectItem>
           <ProjectItem
-            Name="Properties\AssemblyInfo.cs"
-            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_34828cd7de8e4f439feaee7763fda783")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("ST_34828cd7de8e4f439feaee7763fda783")]
-[assembly: AssemblyCopyright("Copyright @ Microsoft 2016")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.Designer.cs"
             Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -1117,7 +1117,7 @@ where [refTable].[SizeId] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Foreach Loop Container\Data Flow Task\Lookup.Connections[OleDbConnection]"
-                      connectionManagerID="{ADDA4174-16F5-4D20-85CB-27BFEE20CDF2}:external"
+                      connectionManagerID="{F9B1738E-44BF-4CD1-BC74-2269194F6D80}:external"
                       connectionManagerRefId="Project.ConnectionManagers[ssu-sql12_tc.Lv-200.DB_Staging.Lv-200.DB]"
                       description="Connection manager used to access lookup data."
                       name="OleDbConnection" />
@@ -1247,7 +1247,7 @@ where [refTable].[SizeId] = ?</property>
                   <connections>
                     <connection
                       refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
-                      connectionManagerID="{ADDA4174-16F5-4D20-85CB-27BFEE20CDF2}:external"
+                      connectionManagerID="{F9B1738E-44BF-4CD1-BC74-2269194F6D80}:external"
                       connectionManagerRefId="Project.ConnectionManagers[ssu-sql12_tc.Lv-200.DB_Staging.Lv-200.DB]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
@@ -2026,9 +2026,7 @@ where [refTable].[SizeId] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2086,9 +2084,7 @@ where [refTable].[SizeId] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2113,7 +2109,7 @@ where [refTable].[SizeId] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2123,7 +2119,7 @@ where [refTable].[SizeId] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
